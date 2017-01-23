@@ -1,0 +1,39 @@
+// Grid settings
+$enable-flex:           true;
+$main-sm-columns:       12;
+$sidebar-sm-columns:    4;
+
+// Colors
+// $brand-primary:         #DDE7E5;
+// $body-bg:								#34706E;
+$brand-primary:         #333;
+$body-bg:								#ededed;
+$body-color:						$brand-primary;
+$link-bg-color:					rgba($brand-primary, 0.1);
+
+$website-width:					1400px;
+$website-padding:				30px;
+$website-border-size:		2px;
+$website-border:				$website-border-size solid $body-color;
+
+// Font Awesome | see: http://fontawesome.io/get-started/
+// $fa-font-path:          '~font-awesome/fonts';
+$fa-font-path:        "//netdna.bootstrapcdn.com/font-awesome/4.7.0/fonts" !default; // for referencing Bootstrap CDN font files directly
+
+
+@mixin link_style {
+	background-color: $link-bg-color;
+	margin: -0.2em;
+	padding: 0.2em;
+	border: 0.2em solid transparent;
+	background-clip: padding-box;
+	transition: background-color 0.2s;
+	line-height: 2em;
+	border-radius: 5px;
+	&:hover,
+	&:focus {
+		text-decoration: none;
+		background-color: white;
+	}
+  @content;
+}

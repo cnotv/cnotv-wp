@@ -1,0 +1,21 @@
+{
+  "entry": {
+    "main": [
+      "./scripts/main.js",
+      "./styles/main.scss"
+    ],
+    "customizer": [
+      "./scripts/customizer.js"
+    ]
+  },
+  "watch": [
+    "scripts/**/*.js",
+    "styles/**/*.scss",
+    "templates/**/*.php",
+    "src/**/*.php"
+  ],
+  "publicPath": "/wp-content/themes/cnotv_2017",
+  "devUrl": "http://localhost/wp_mvc",
+  "proxyUrl": "http://localhost:4000",
+  "cacheBusting": "[name]_[hash:8]"
+}
