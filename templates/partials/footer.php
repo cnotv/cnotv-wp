@@ -2,19 +2,19 @@
   <div class="cnotv__container">
 	  <div class="cnotv__flexgrid">
 		  <div class="cnotv__flexgrid__column cnotv__flexgrid__column--4">
-			  <hr class="cnotv__divider"></hr>
+			  <hr class="cnotv__divider">
 		    <?php dynamic_sidebar('sidebar-footer-a'); ?>
 		  </div>
 		  <div class="cnotv__flexgrid__column cnotv__flexgrid__column--4">
-			  <hr class="cnotv__divider"></hr>
+			  <hr class="cnotv__divider">
 		    <?php dynamic_sidebar('sidebar-footer-b'); ?>
 		  </div>
 		  <div class="cnotv__flexgrid__column cnotv__flexgrid__column--4">
-			  <hr class="cnotv__divider"></hr>
+			  <hr class="cnotv__divider">
 		    <?php dynamic_sidebar('sidebar-footer-c'); ?>
 		  </div>
 		  <div class="cnotv__flexgrid__column cnotv__flexgrid__column--4">
-			  <hr class="cnotv__divider"></hr>
+			  <hr class="cnotv__divider">
 		    <?php dynamic_sidebar('sidebar-footer-d'); ?>
 		  </div>
 	  </div>

@@ -10,7 +10,7 @@
 	<?php endif; ?>
 	<a href="<?php the_permalink(); ?>" class="item-wrap cnotv__link js-modal" data-toggle="modal" data-target="#cnotvModal">
 		<div class="cnotv__featured featured-image">
-			<img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id() ); ?>" ></img>
+			<img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id() ); ?>" alt="<?php the_title(); ?>">
 		</div>
 	</a>
 </article>

@@ -11,6 +11,6 @@
 	  </section>
 	</div>
 
-  <hr class="cnotv__divider clearfix"></hr>
+  <hr class="cnotv__divider clearfix">
 	<?php get_template_part('templates/partials/related-post'); ?>
 <?php endwhile; ?>

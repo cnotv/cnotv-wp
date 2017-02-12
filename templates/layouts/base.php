@@ -11,7 +11,7 @@
       do_action('get_header');
       get_template_part('partials/header');
     ?>
-    <main role="document" class="cnotv__main cnotv__container">
+    <main role="main" class="cnotv__main cnotv__container">
       <?php include App\template()->main(); ?>
       <?php if (App\display_sidebar()) : ?>
         <aside class="">

@@ -14,7 +14,7 @@
   $categories = get_terms( 'portfolio_category' );
   foreach ( $categories as $category ) { ?>
     <section class="cnotv__section">
-      <hr class="cnotv__divider"></hr>
+      <hr class="cnotv__divider">
       <h2 class="h3">Latest <?php echo $category->name ?> <small><a class="cnotv__more" href="<?php echo esc_url( get_category_link( $category->term_id ) ) ?>"><i class="fa fa-plus"></i></a></small></h2>
       <div class="cnotv__flexgrid">
         <?php 
@@ -38,7 +38,7 @@
   <?php }?>
   
   <section class="cnotv__section">
-    <hr class="cnotv__divider"></hr>
+    <hr class="cnotv__divider">
     <h2 class="h3">Latest articles <small><a class="cnotv__more" href="blog"><i class="fa fa-plus"></i></a></small></h2>
     <div class="cnotv__flexgrid">
       <?php 

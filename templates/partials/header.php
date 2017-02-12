@@ -1,4 +1,4 @@
-<header class="cnotv__header" role="banner">
+<header class="cnotv__header">
   <div class="cnotv__container">
     <?php echo get_custom_logo('asd'); ?>
     <nav class="cnotv__navbar navbar">
