@@ -31,6 +31,7 @@ function register_taxonomy_subfields() {
     'show_admin_column'   => true,
     'hierarchical'        => false,
     'rewrite'             => true,
+		'show_in_rest' 				=> true,
     'query_var'           => true
   );
 

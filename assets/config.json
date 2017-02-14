@@ -15,7 +15,7 @@
     "src/**/*.php"
   ],
   "publicPath": "/wp-content/themes/cnotv_2017",
-  "devUrl": "http://localhost/wp_mvc",
+  "devUrl": "http://cnotv.xyz/",
   "proxyUrl": "http://localhost:4000",
   "cacheBusting": "[name]_[hash:8]"
 }

@@ -35,7 +35,7 @@ function create_posttype_portfolio() {
 	$support = array( 
 		'title', 
 		'editor', 
-		// 'excerpt', 
+		'excerpt', 
 		//'author', 
 		'thumbnail',
 		'tags',
@@ -58,6 +58,7 @@ function create_posttype_portfolio() {
 			'taxonomies'            => array( 'portfolio_category', 'subfields', 'tools'),
 			'hierarchical'          => true,
 			'show_ui'               => true,
+			'show_in_rest' 					=> true,
 			'show_in_menu'          => true,
 			'menu_position'         => 4,
 			'menu_icon'             => 'dashicons-welcome-view-site',

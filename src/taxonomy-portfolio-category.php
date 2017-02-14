@@ -31,6 +31,7 @@ function register_taxonomy_portfolio_category() {
     'show_admin_column'   => true,
     'hierarchical'        => true,
     'rewrite'             => true,
+		'show_in_rest' 				=> true,
     'query_var'           => true
   );
 
