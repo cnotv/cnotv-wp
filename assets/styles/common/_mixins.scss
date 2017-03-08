@@ -1,0 +1,71 @@
+$viewports: (
+  phone:        "only screen and (max-width: 575px)",
+  mobile:       "only screen and (max-width: 991px)",
+  tablet:       "only screen and (min-width: 575px) and (max-width: 992px)",
+  tablet-min:   "only screen and (min-width: 575px)",
+  desktop:      "only screen and (min-width: 992px)",
+);
+
+@mixin media-bp($prefix) {
+  $media-query: map-get($viewports, $prefix);
+  @media #{$media-query} {
+    @content;
+  }
+}
+
+@mixin link_style {
+	background-color: $link-bg-color;
+	margin: -0.2em;
+	padding: 0.2em;
+	border: 0.2em solid transparent;
+	background-clip: padding-box;
+	transition: background-color 0.2s;
+	line-height: 2em;
+	border-radius: 5px;
+	&:hover,
+	&:focus {
+		text-decoration: none;
+		background-color: $link-active-color;
+	}
+  @content;
+}
+
+@mixin menu_item {
+	@include media-bp(desktop) {
+		padding: $menu-padding;
+	}
+	@include media-bp(mobile) {
+		line-height: 1;
+		padding: $menu-padding/1.5;
+		font-size: 1.5em;
+	}
+}
+
+@mixin modal {
+	@include media-bp(tablet-min) {
+		width: calc(100% - #{$website-padding*4});
+		margin-left: $website-padding*4;
+	}
+	@include media-bp(mobile) {
+		width: calc(100% - #{$website-padding});
+		margin-left: $website-padding;
+	}
+	@include media-bp(phone) {
+		width: calc(100% - #{$website-padding/2});
+		margin-left: $website-padding/2;
+	}
+}
+
+@mixin menu_open {
+	.has-menu-open & {
+		@include media-bp(mobile) {
+			@content;
+		}
+	}
+}
+
+@mixin search_open {
+	.has-search-open & {
+		@content;
+	}
+}

@@ -1,6 +1,150 @@
-.banner .nav li {
-	@extend .nav-item;
-}
-.banner .nav a {
-	@extend .nav-link;
+.cnotv {	
+	&__logo {
+		margin: $website-padding auto $website-padding*1.5;
+		display: block;
+		max-height: 60px;
+		width: auto;
+	}
+	&__navbar {
+		font-size: 0.8rem;
+		font-weight: 600;
+		border-top: $website-border;
+		border-bottom: $website-border;
+		text-transform: uppercase;
+		border-radius: 0;
+		display: flex;
+		z-index: 1;
+
+		&__menu {
+			@include search_open {
+				@include media-bp(tablet-min) {
+					display: none;
+				}
+			}
+			@include media-bp(mobile) {
+				display: none;
+			}
+
+			@include menu_open {
+				display: flex;
+				position: absolute;
+				margin-top: $menu-mobile-offset;
+				left: 0;
+				right: 0;
+				z-index: 1;
+				// background-color: $modal-shadow-color;
+			}
+
+			&__bar {
+				display: flex;
+				@include menu_open {
+					width: 100%;
+					flex-direction: column;
+					justify-content: center;
+					text-align: center;
+					animation: fadeInUp 0.2s;
+				}
+			}
+		}
+
+
+		ul, li {
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+		a {
+			@include menu_item;
+			display: block;
+
+			&:hover,
+			&:focus {
+				text-decoration: none;
+				@include media-bp(desktop) {
+					background-color: $link-bg-color;
+				}
+			}
+		}
+		.current-menu-item a {
+			&:before {
+			}
+		}
+		li > ul {
+			display: none;
+		}
+		li + li {
+			// border-top: $website-border;
+		}
+
+		&__burger {
+			@include menu_item;
+			border: none;
+			background-color: transparent;
+			cursor: pointer;
+			&:hover,
+			&:focus {
+				text-decoration: none;
+				@include media-bp(desktop) {
+					background-color: $link-bg-color;
+				}
+			}
+			@include media-bp(desktop) {
+				display: none;
+			}
+
+			// if open
+			@include menu_open {
+				z-index: 2;
+				i:before {
+					content: $fa-var-times;
+				}
+			}
+			&.is-loading i {
+				animation: rotate360 1s linear infinite;
+				&:before {
+					content: $fa-var-clock-o;
+				}
+			}
+		}
+		&__togglers {
+			margin-left: auto;
+			display: flex;
+			align-self: center;
+			@include search_open {
+				display: none;
+			}
+			i { 
+				@include media-bp(desktop) {
+					margin-right: 0.8em;
+				}
+			}
+			span {
+				@include media-bp(mobile) {
+					display: none; 	
+				}
+			}
+		}
+		&__search {
+			display: none;
+			width: 100%;
+			align-items: center;
+			@include search_open {
+				display: flex;
+			}
+			.search-field {
+				width: 100%;
+				font-weight: 600;
+				text-transform: uppercase;
+				@include media-bp(desktop) {
+					padding: $menu-padding;
+				}
+			}
+			.screen-reader-text {
+				display: none;
+			}
+			.search-form {
+				width: 100%;
+			}
+		}
+	}
 }

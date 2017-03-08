@@ -1,0 +1,18 @@
+.cnotv {
+	&__footer {
+		padding-bottom: $website-padding;
+		ul { padding: 0; }
+		ul li {
+			list-style: none;
+			&:before {
+				content: "+";
+				font-weight: bold;
+				margin-left: .5em;
+				margin-right: .5em;
+			}
+			&>ul {
+				padding-left: 1em;
+			}
+		}
+	}
+}

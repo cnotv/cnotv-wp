@@ -1,0 +1,43 @@
+.cnotv{
+	&__modal {
+		background: $modal-shadow-color;
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: $zindex-modal;
+		display: none;
+		overflow: hidden;
+		outline: 0;
+
+		&__dialog {
+			@include modal;
+		}
+		
+		.modal-open & {
+			overflow-x: hidden;
+			overflow-y: auto;
+		}
+
+		&__content {
+			border-radius: 0;
+			padding: 8vh 4vw;
+			background-color: $body-bg;
+			min-height: 100vh;
+		}
+
+		.cnotv__header,
+		.cnotv__footer {
+			display: none;
+		}
+		.cnotv__main {
+			min-height: 100%;
+			min-height: 100vh;
+		}
+		aside {
+			@include media-bp(mobile) {
+			}
+		}
+	}
+}

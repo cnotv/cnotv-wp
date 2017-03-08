@@ -2,18 +2,21 @@ export default {
   init() {
     // JavaScript to be fired on all pages
     $('.js-modal').on('click', function modalLink() {
+      // TODO search how to target main
       $('#cnotvModal .modal-content').load($(this).attr('href'));
     });
     $('.js-search').on('click', () => {
-      $('.cnotv__navbar__menu').addClass('hidden-xs-up');
-      $('.cnotv__togglers').addClass('hidden-xs-up');
-      $('.cnotv__search').removeClass('hidden-xs-up');
+      $('body').addClass('has-search-open').removeClass('has-menu-open');
       $('.search-field').focus();
     });
     $('.js-search__close').on('click', () => {
-      $('.cnotv__navbar__menu').removeClass('hidden-xs-up');
-      $('.cnotv__togglers').removeClass('hidden-xs-up');
-      $('.cnotv__search').addClass('hidden-xs-up');
+      $('body').removeClass('has-search-open');
+    });
+    $('.js-burger').on('click', () => {
+      $('body').toggleClass('has-menu-open').removeClass('has-search-open');
+    });
+    $('.cnotv__navbar__menu a').on('click', () => {
+      $('.js-burger').toggleClass('is-loading');
     });
   },
   finalize() {
