@@ -101,6 +101,8 @@
 			}
 			&.is-loading i {
 				animation: rotate360 1s linear infinite;
+				margin: -.15em;
+				padding: .15em;
 				&:before {
 					content: $fa-var-clock-o;
 				}

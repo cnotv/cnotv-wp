@@ -2,60 +2,65 @@
 
 namespace App;
 
-use Roots\Sage\Template;
-use Roots\Sage\Template\Wrapper;
-
-/**
- * Determine which pages should NOT display the sidebar
- * @link https://codex.wordpress.org/Conditional_Tags
- */
-add_filter('sage/display_sidebar', function ($display) {
-	// The sidebar will NOT be displayed if ANY of the following return true
-	return $display ? !in_array(true, [
-		is_page(),
-		// is_single(),
-		is_tax(),
-		is_post_type_archive('portfolio'),
-		is_404(),
-		is_home(),
-		is_category(),
-		is_front_page(),
-		is_page_template('templates/template-custom.php'),
-	]) : $display;
-});
-
 /**
  * Add <body> classes
  */
 add_filter('body_class', function (array $classes) {
-	// Add page slug if it doesn't exist
-	if (is_single() || is_page() && !is_front_page()) {
-		if (!in_array(basename(get_permalink()), $classes)) {
-			$classes[] = basename(get_permalink());
-		}
-	}
+    // Add page slug if it doesn't exist
+    if (is_single() || is_page() && !is_front_page()) {
+        if (!in_array(basename(get_permalink()), $classes)) {
+            $classes[] = basename(get_permalink());
+        }
+    }
 
-	// Add class if sidebar is active
-	if (display_sidebar()) {
-		$classes[] = 'sidebar-primary';
-	}
+    // Add class if sidebar is active
+    if (display_sidebar()) {
+        $classes[] = 'sidebar-primary';
+    }
 
-	return $classes;
+    return $classes;
 });
 
 /**
  * Add "… Continued" to the excerpt
  */
 add_filter('excerpt_more', function () {
-	return ' &hellip; <a href="' . get_permalink() . '">' . __('Continued', 'sage') . '</a>';
+    return ' &hellip; <a href="' . get_permalink() . '">' . __('Continued', 'sage') . '</a>';
 });
 
 /**
- * Use theme wrapper
+ * Template Hierarchy should search for .blade.php files
  */
-add_filter('template_include', function ($main) {
-	if (!is_string($main) && !(is_object($main) && method_exists($main, '__toString'))) {
-		return $main;
-	}
-	return ((new Template(new Wrapper($main)))->layout());
-}, 109);
+array_map(function ($type) {
+    add_filter("{$type}_template_hierarchy", function ($templates) {
+        return call_user_func_array('array_merge', array_map(function ($template) {
+            $transforms = [
+                '%^/?(templates)?/?%' => config('sage.disable_option_hack') ? 'templates/' : '',
+                '%(\.blade)?(\.php)?$%' => ''
+            ];
+            $normalizedTemplate = preg_replace(array_keys($transforms), array_values($transforms), $template);
+            return ["{$normalizedTemplate}.blade.php", "{$normalizedTemplate}.php"];
+        }, $templates));
+    });
+}, [
+    'index', '404', 'archive', 'author', 'category', 'tag', 'taxonomy', 'date', 'home',
+    'frontpage', 'page', 'paged', 'search', 'single', 'singular', 'attachment'
+]);
+
+/**
+ * Render page using Blade
+ */
+add_filter('template_include', function ($template) {
+    $data = array_reduce(get_body_class(), function ($data, $class) use ($template) {
+        return apply_filters("sage/template/{$class}/data", $data, $template);
+    }, []);
+    echo template($template, $data);
+
+    // Return a blank file to make WordPress happy
+    return get_theme_file_path('index.php');
+}, PHP_INT_MAX);
+
+/**
+ * Tell WordPress how to find the compiled path of comments.blade.php
+ */
+add_filter('comments_template', 'App\\template_path');

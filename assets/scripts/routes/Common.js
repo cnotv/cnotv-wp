@@ -3,7 +3,9 @@ export default {
     // JavaScript to be fired on all pages
     $('.js-modal').on('click', function modalLink() {
       // TODO search how to target main
-      $('#cnotvModal .modal-content').load($(this).attr('href'));
+      const modalcontent = $(this).attr('href');
+      $('#cnotvModal .modal-content').empty().append('<div class="cnotv__loader"><i class="fa fa-clock-o"></i></div>');
+      $('#cnotvModal .modal-content').load(modalcontent);
     });
     $('.js-search').on('click', () => {
       $('body').addClass('has-search-open').removeClass('has-menu-open');
