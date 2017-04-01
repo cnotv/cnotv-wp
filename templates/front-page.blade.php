@@ -1,7 +1,7 @@
 @extends('layouts.base')
 @section('content')
   <?php while (have_posts()) : the_post(); ?>
-    <section class="cnotv__flexgrid cnotv__flexgrid--invertwrap">
+    <section class="cnotv__hero cnotv__flexgrid cnotv__flexgrid--invertwrap">
       <div class="cnotv__flexgrid__column cnotv__flexgrid__column--fill">
         <?php get_template_part('partials/content-page'); ?>
         <?php get_template_part('partials/cloud-subfields'); ?>
@@ -17,7 +17,7 @@
     foreach ( $categories as $category ) { ?>
       <section class="cnotv__section">
         <hr class="cnotv__divider">
-        <h2 class="h5">Latest <?php echo $category->name ?> <small><a class="cnotv__more" href="<?php echo esc_url( get_category_link( $category->term_id ) ) ?>"><i class="fa fa-plus"></i></a></small></h2>
+        <a class="cnotv__more" href="<?php echo esc_url( get_category_link( $category->term_id ) ) ?>"><h2 class="h5">Latest <?php echo $category->name ?> <i class="fa"></i></h2></a>
         <div class="cnotv__flexgrid">
           <?php 
           $args = array( 
@@ -41,7 +41,7 @@
     
     <section class="cnotv__section">
       <hr class="cnotv__divider">
-      <h2 class="h5">Latest articles <small><a class="cnotv__more" href="blog"><i class="fa fa-plus"></i></a></small></h2>
+      <a class="cnotv__more" href="blog"><h2 class="h5">Latest articles <i class="fa"></i></h2></a>
       <div class="cnotv__flexgrid">
         <?php 
         $args = array( 

@@ -50,8 +50,6 @@ p>a {
 .cnotv {
 	// GLOBAL
 	&__main {
-		transition: filter 0.2s;
-		transition: opacity 0.2s;
 		@include media-bp(tablet-min) {
 			padding-top: $website-padding;
 			padding-bottom: $website-padding;
@@ -90,17 +88,25 @@ p>a {
 	}
 
 	&__more {
-		font-size: 1rem;
-		width: 1rem;
-		height: 1rem;
-		text-align: center;
-		transition: transform 0.2s;
-		display: table-cell;
-		line-height: 1em;
+		i {
+			vertical-align: middle;
+			&:after {
+				content: $fa-var-plus;
+				font-size: 1rem;
+				width: 1rem;
+				height: 1rem;
+				text-align: center;
+				transition: transform 0.2s;
+				display: table-cell;
+				line-height: 1em;
+			}
+		}
 		&:hover,
 		&:focus {
-			text-decoration: none;
-			transform: rotate(90deg);
+			i:after {
+				text-decoration: none;
+				transform: rotate(90deg);
+			}
 		}
 	}
 

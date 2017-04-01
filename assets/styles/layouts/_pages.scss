@@ -21,26 +21,11 @@
 
 	// HOME
 	&__hero {
-		min-height: 50vh;
-		display: flex;
-		justify-content: center;
-		align-items: center;
 		@include media-bp(tablet-min) {
-			flex-flow: row;
+			padding-bottom: $website-padding;
 		}
 		@include media-bp(mobile) {
-			flex-flow: column;
-		}
-		&__content {
-			@include media-bp(tablet-min) {
-				width: 75%;
-			}
-		}
-		&__tagcloud {
-			@include media-bp(tablet-min) {
-				width: 25%;
-				padding-left: $website-padding/2;
-			}
+			padding-bottom: $website-padding/2;
 		}
 	}
 }

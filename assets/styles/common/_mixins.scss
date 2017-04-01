@@ -14,7 +14,7 @@ $viewports: (
 }
 
 @mixin link_style {
-	background-color: $link-bg-color;
+	background-color: $link-active-color;
 	margin: -0.2em;
 	padding: 0.2em;
 	border: 0.2em solid transparent;
@@ -25,7 +25,7 @@ $viewports: (
 	&:hover,
 	&:focus {
 		text-decoration: none;
-		background-color: $link-active-color;
+		background-color: $link-bg-color;
 	}
   @content;
 }
