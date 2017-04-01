@@ -69,3 +69,15 @@ $viewports: (
 		@content;
 	}
 }
+
+@mixin loader {
+	width: .85em;
+	height: .85em;
+	border-radius: 50%;
+	animation: rotate360 1s linear infinite;
+	border: .2em solid $brand-primary;
+	border-bottom-color: transparent;
+	&:before {
+		content: "";
+	}
+}

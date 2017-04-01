@@ -8,6 +8,7 @@
 	&__navbar {
 		font-size: 0.8rem;
 		font-weight: 600;
+		font-family: $headings-font-family;
 		border-top: $website-border;
 		border-bottom: $website-border;
 		text-transform: uppercase;
@@ -100,12 +101,7 @@
 				}
 			}
 			&.is-loading i {
-				animation: rotate360 1s linear infinite;
-				margin: -.15em;
-				padding: .15em;
-				&:before {
-					content: $fa-var-clock-o;
-				}
+				@include loader;
 			}
 		}
 		&__togglers {

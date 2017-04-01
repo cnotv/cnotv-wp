@@ -1,27 +1,37 @@
 // Grid settings
-$enable-flex:           true;
-$main-sm-columns:       12;
-$sidebar-sm-columns:    4;
+$enable-flex:          			true;
+$main-sm-columns:      			12;
+$sidebar-sm-columns:   	 		4;
+
+// Fonts
+// $font-family-base:					'Droid Serif';
+// $font-family-base:				'Roboto Mono', Georgia, "Times New Roman", Times, serif;
+$font-family-base:				'Roboto', -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+// $headings-font-family:			'Rubik',  -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$headings-font-family:			'Rubik',  -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$headings-font-weight:			700;
+$headings-margin-bottom:		1rem;
+$letter-spacing-base:				.5px;
 
 // Colors
-// $brand-primary:         #DDE7E5;
+// $brand-primary:        	#DDE7E5;
 // $body-bg:								#34706E;
-$brand-primary:         #333;
-$body-bg:								#ededed;
-$body-color:						$brand-primary;
-$link-bg-color:					#dadada;
-$link-active-color:			#fff;
-$modal-shadow-color:		rgba(0,0,0,0.7);
+$brand-primary:       		  #333;
+$body-bg:										#ededed;
+$body-color:								$brand-primary;
+$link-bg-color:							#dadada;
+$link-active-color:					#fff;
+$modal-shadow-color:				rgba(0,0,0,0.7);
 
-$website-width:					1400px;
-$website-padding:				30px;
-$website-border-size:		2px;
-$website-border:				$website-border-size solid $body-color;
-$menu-padding:					1.6rem;
-$menu-mobile-offset:		80px;
+$website-width:							1400px;
+$website-padding:						30px;
+$website-border-size:				2px;
+$website-border:						$website-border-size solid $body-color;
+$menu-padding:							1.6rem;
+$menu-mobile-offset:				80px;
 
 
-$zindex-modal:					1050;
+$zindex-modal:							1050;
 
 // Font Awesome | see: http://fontawesome.io/get-started/
 // $fa-font-path:          '~font-awesome/fonts';

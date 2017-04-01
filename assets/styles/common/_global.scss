@@ -1,3 +1,7 @@
+body {
+	letter-spacing: $letter-spacing-base;
+}
+
 img {
 	max-width: 100%;
 	width: auto;
@@ -104,12 +108,8 @@ p>a {
 		position: absolute;
 		top: 50%;
 		left: 50%;
-
 		font-size: 3em;
-		i {
-			animation: rotate360 1s linear infinite;
-			padding: .1em;
-		}
+		@include loader;
 	}
 }
 

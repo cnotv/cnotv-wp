@@ -4,7 +4,7 @@ export default {
     $('.js-modal').on('click', function modalLink() {
       // TODO search how to target main
       const modalcontent = $(this).attr('href');
-      $('#cnotvModal .modal-content').empty().append('<div class="cnotv__loader"><i class="fa fa-clock-o"></i></div>');
+      $('#cnotvModal .modal-content').empty().append('<div class="cnotv__loader"></div>');
       $('#cnotvModal .modal-content').load(modalcontent);
     });
     $('.js-search').on('click', () => {
