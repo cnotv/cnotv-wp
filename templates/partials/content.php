@@ -1,4 +1,4 @@
-<article <?php post_class('cnotv__flexgrid__column cnotv__flexgrid__column--2'); ?>>
+<article <?php post_class('cnotv__flexgrid__column cnotv__flexgrid__column--2 fadeIn'); ?>>
   <header>
     <h2 class="h4"><a href="<?php the_permalink(); ?>" class=" js-modal" data-toggle="modal" data-target="#cnotvModal"><?php the_title(); ?></a></h2>
   </header>

@@ -1,11 +1,19 @@
-.fadeIn { animation: fadeIn 0.5s backwards; }
-.fadeOut { animation: fadeIn 0.5s forwards; }
+.fadeIn {
+	animation: fadeIn 0.5s forwards;
+	opacity: 0;
+	@include animationDelay;
+}
+.fadeOut { animation: fadeIn 0.5s backwards; }
 @keyframes fadeIn {
 	from { opacity: 0; }
 	to { opacity: 1; }
 }
 
-.fadeInUp { animation: fadeInUp 0.5s forwards; }
+.fadeInUp {
+	opacity: 0;
+	animation: fadeInUp 0.5s forwards;
+	@include animationDelay;
+}
 @keyframes fadeInUp {
 	from {
 		opacity: 0;
@@ -27,15 +35,27 @@
 		transform: none;
 	}
 }
-.slideInRight { animation: slideInRight 0.2s forwards; }
+.slideInRight {
+	animation: slideInRight 0.2s forwards;
+	@include animationDelay;
+}
 @keyframes slideInRight {
-	from {transform: translate3d(100%, 0, 0);}
+	from {transform: translate3d(50%, 0, 0);}
+	to {transform: none;}
+}
+.slideInLeft {
+	animation: slideInLeft 0.2s forwards;
+	@include animationDelay;
+}
+@keyframes slideInLeft {
+	from {transform: translate3d(-50%, 0, 0);}
 	to {transform: none;}
 }
 
-.animation-delay {animation-delay: 0.2s;}
+.animation-delay { animation-delay: 0.2s; }
 
 @keyframes rotate360 {  
 	from {transform: rotate(0deg);}
   to {transform: rotate(360deg);}
 }
+

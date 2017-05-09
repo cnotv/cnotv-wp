@@ -73,3 +73,15 @@ $viewports: (
 		content: "";
 	}
 }
+
+
+@mixin animationDelay {
+	// &:nth-of-type(n+2) {
+	// 	animation-delay: 2s;
+	// }
+	@for $i from 1 through 20 {
+		&:nth-of-type(n+#{$i}) {
+			animation-delay: #{$i/10}s;
+		}
+	}
+}
