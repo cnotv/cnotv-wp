@@ -31,6 +31,8 @@ $viewports: (
 }
 
 @mixin menu_item {
+	display: block;
+	font-weight: 600;
 	@include media-bp(desktop) {
 		padding: $menu-padding;
 	}
@@ -38,6 +40,13 @@ $viewports: (
 		line-height: 1;
 		padding: $menu-padding/1.5;
 		font-size: 1.5em;
+	}
+	&:hover,
+	&:focus {
+		text-decoration: none;
+		@include media-bp(desktop) {
+			background-color: $link-bg-color;
+		}
 	}
 }
 

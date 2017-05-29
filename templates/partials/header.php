@@ -3,7 +3,7 @@
     <?php echo get_custom_logo('asd'); ?>
     <nav class="cnotv__navbar">
       <button class="cnotv__navbar__burger js-burger" type="button"><i class="fa fa-navicon"></i></button>
-      <div class="cnotv__navbar__search">
+      <div class="cnotv__search">
         <?php get_search_form(); ?>
         <a class="js-search__close" href="#"><i class="fa fa-times"></i></a>
       </div>

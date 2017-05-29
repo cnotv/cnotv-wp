@@ -7,7 +7,6 @@
 	}
 	&__navbar {
 		font-size: 0.8rem;
-		font-weight: 600;
 		font-family: $headings-font-family;
 		border-top: $website-border;
 		border-bottom: $website-border;
@@ -15,6 +14,7 @@
 		border-radius: 0;
 		display: flex;
 		z-index: 1;
+		position: relative;
 
 		&__menu {
 			@include search_open {
@@ -45,6 +45,10 @@
 					text-align: center;
 					animation: fadeInUp 0.2s;
 				}
+
+				a {
+					@include menu_item;
+				}
 			}
 		}
 
@@ -54,18 +58,7 @@
 			margin: 0;
 			list-style: none;
 		}
-		a {
-			@include menu_item;
-			display: block;
 
-			&:hover,
-			&:focus {
-				text-decoration: none;
-				@include media-bp(desktop) {
-					background-color: $link-bg-color;
-				}
-			}
-		}
 		.current-menu-item a {
 			&:before {
 			}
@@ -108,8 +101,13 @@
 			margin-left: auto;
 			display: flex;
 			align-self: center;
+
 			@include search_open {
 				display: none;
+			}
+
+			a {
+				@include menu_item;
 			}
 			i { 
 				@include media-bp(desktop) {
@@ -122,26 +120,64 @@
 				}
 			}
 		}
-		&__search {
-			display: none;
+	}
+	&__search {
+		display: none;
+		width: 100%;
+		align-items: center;
+		@include search_open {
+			display: flex;
+		}
+
+		&>a {
+			@include menu_item;
+		}
+		.search-field {
 			width: 100%;
-			align-items: center;
-			@include search_open {
-				display: flex;
+			font-weight: 600;
+			text-transform: uppercase;
+			@include media-bp(desktop) {
+				padding: $menu-padding;
 			}
-			.search-field {
-				width: 100%;
-				font-weight: 600;
-				text-transform: uppercase;
-				@include media-bp(desktop) {
-					padding: $menu-padding;
+		}
+		.screen-reader-text {
+			display: none;
+		}
+		.search-form {
+			width: 100%;
+		}
+
+		&__reset {
+			padding: $menu-padding/2 $menu-padding;
+			cursor: pointer;
+			display: inline-block;
+			&:hover {
+				background-color: white;
+			}
+		}
+
+		&__bar {
+			display: flex;
+		}
+
+		&__answer {
+			padding: $menu-padding/2 $menu-padding;
+		}
+
+		&__results {
+			position: absolute;
+			width: 100%;
+			background-color: $link-active-color;
+			top: 100%;
+			left: 0;
+			box-shadow: 0 5px 15px 5px rgba($body-color,0.3);
+
+			a {
+				display: block;
+				padding: $menu-padding/2 $menu-padding;
+				&:hover {
+					background-color: white;
 				}
-			}
-			.screen-reader-text {
-				display: none;
-			}
-			.search-form {
-				width: 100%;
 			}
 		}
 	}
