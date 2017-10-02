@@ -1,0 +1,14 @@
+article {
+  img {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+  }
+
+  section,
+  footer {
+    a {
+      @include link_style;
+    }
+  }
+}

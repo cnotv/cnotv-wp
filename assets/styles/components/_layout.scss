@@ -1,0 +1,94 @@
+[class^="c-container"] {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  @include media-bp(desktop) {
+    padding-left: $grid-gutter-size*2;
+    padding-right: $grid-gutter-size*2;
+  }
+  @include media-bp(mobile) {
+    padding-left: $grid-gutter-size;
+    padding-right: $grid-gutter-size;
+  }
+}
+.c-container {
+  max-width: $container-width;
+}
+.c-container-s {
+  max-width: $container-s-width;
+}
+
+.c-section {
+  padding-bottom: $section-padding;
+  padding-top: $section-padding;
+
+  // &+& {
+  //   padding-top: $section-padding;
+  // }
+}
+
+.c-main {
+  @include grid-col(3/4, $padding: false);
+  overflow-y: scroll;
+  height: 100vh;
+}
+.c-sidebar {
+  @include grid-col(1/4, $padding: false);
+  background-color: $bg-link;
+  overflow-y: scroll;
+
+  @include media-bp(desktop) {
+    height: 100vh;
+  }
+  @include media-bp(mobile) {
+    height: 0;
+  }
+}
+
+
+.c-row {
+  @include grid-row;
+
+  &--center {
+    justify-content: center;
+  }
+  &--end {
+    justify-content: flex-end;
+  }
+
+  &--edge {
+    @include grid-row($padding: false);
+  }
+  &--padding {
+    &-1 {
+      &+& {
+        padding-top: $grid-gutter-size;
+      }
+    }
+    &-2 {
+      &+& {
+        padding-top: $grid-gutter-size*2;
+      }
+    }
+    &-3 {
+      &+& {
+        padding-top: $grid-gutter-size*3;
+      }
+    }
+  }
+}
+
+$cols: 6;
+@for $i from 1 through $cols - 1 {
+  @for $j from 1 through $cols {
+    @if ($i and $j == 1) {
+      .c-col {
+        @include grid-col;
+      }
+    } @else if ($i < $j ) {
+      .c-col-#{$i}-#{$j} {
+        @include grid-col(#{$i}/#{$j});
+      }
+    }
+  }
+}

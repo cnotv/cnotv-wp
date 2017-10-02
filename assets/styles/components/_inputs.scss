@@ -1,0 +1,171 @@
+[class^="c-input"] {
+  background-color: transparent;
+  padding: $menu-padding/4 $menu-padding/4 $menu-padding/8;
+  border: none;
+  border-bottom: $website-border;
+  width: 100%;
+  appearance: none;
+  margin-bottom: 1em;
+
+  &:focus {
+    outline: none;
+  }
+
+
+  &:disabled,
+  &[disabled],
+  &.is-disabled {
+    color: $color-disabled;
+    &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+      color: $color-disabled;
+    }
+    &::-moz-placeholder { /* Firefox 19+ */
+      color: $color-disabled;
+    }
+    &:-ms-input-placeholder { /* IE 10+ */
+      color: $color-disabled;
+    }
+    &:-moz-placeholder { /* Firefox 18- */
+      color: $color-disabled;
+    }
+  }
+
+  &.is-invalid {
+    color: $color-error;
+    box-shadow: none;
+  }
+  &:-moz-submit-invalid,
+  &:-moz-ui-invalid,
+  &:invalid {
+    border-color: $color-error;
+    box-shadow: none;
+  }
+}
+
+
+.c-input {
+  &__select {
+    background: no-repeat right  url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDIwLjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHdpZHRoPSIyMXB4IiBoZWlnaHQ9IjMycHgiIHZpZXdCb3g9IjAgMCAyMSAzMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjEgMzI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4KCS5zdDB7ZmlsbDojNDA0MDQwO30KPC9zdHlsZT4KPHBhdGggY2xhc3M9InN0MCIgZD0iTTEzLjEsMTMuNmMwLDAuMSwwLDAuMi0wLjEsMC4zbC01LjMsNS4zYy0wLjEsMC4xLTAuMiwwLjEtMC4zLDAuMWMtMC4xLDAtMC4yLDAtMC4zLTAuMWwtNS4zLTUuMwoJYy0wLjEtMC4xLTAuMS0wLjItMC4xLTAuM2MwLTAuMSwwLTAuMiwwLjEtMC4zbDAuNi0wLjZjMC4xLTAuMSwwLjItMC4xLDAuMy0wLjFjMC4xLDAsMC4yLDAsMC4zLDAuMWw0LjQsNC40bDQuNC00LjQKCWMwLjEtMC4xLDAuMi0wLjEsMC4zLTAuMXMwLjIsMCwwLjMsMC4xbDAuNiwwLjZDMTMsMTMuNCwxMy4xLDEzLjUsMTMuMSwxMy42TDEzLjEsMTMuNnoiLz4KPC9zdmc+Cg==');
+    border-radius: 0;
+
+    &:-moz-focusring {
+      color: transparent;
+      text-shadow: 0 0 0 #000;
+    }
+    &::-ms-expand {
+      opacity:0;
+      display: none;
+    }
+    &:focus::-ms-value {
+      background: transparent;
+    }
+    
+    option {
+      padding: $menu-padding/4 $menu-padding/2;
+      background-color: $bg-link-hover;
+      border: none;
+      // box-shadow: 0 5px 15px 5px rgba($body-color,0.3);
+      &:hover {
+        background-color: white;
+      }
+    }
+  }
+
+  &__textarea {
+    resize: none;
+  }
+}
+
+.c-radio,
+.c-checkbox {
+  margin-bottom: .5em;
+
+  input { display: none; }
+  label {
+    cursor: pointer;
+    &:before {
+      content: "";
+      height: 1.5em;
+      width: 1.5em;
+      display: inline-block;
+      margin-right: .5em;
+      border: $website-border;
+      vertical-align: bottom;
+      cursor: pointer;
+      background-color: currentcolor;
+      transition: box-shadow .2s;
+      box-shadow: inset 0 0 0 1em $bg-link;
+    }
+    &:hover:before {
+      box-shadow: inset 0 0 0 .5em $bg-link;
+    }
+  }
+  input:checked + label {
+    &:before {
+      background-color: currentcolor;
+      box-shadow: inset 0 0 0 .1em $bg-link;
+    }
+  }
+
+  [class^="c-input"] ~ & {
+    margin-top: $section-padding/2;
+  }
+  & + & {
+    margin-top: 12px;
+  }
+
+  & ~ [class^="c-input"] {
+    margin-top: $section-padding/2;
+  }
+
+  &__inlined {
+    width: 100%;
+    
+    [class^="c-input"] ~ & {
+      margin-top: $section-padding/2;
+    }
+
+    & ~ [class^="c-input"] {
+      margin-top: $section-padding/2;
+    }
+    .c-radio {
+      display: inline-block;
+    }
+    .c-radio + .c-radio {
+      margin-left: $section-padding/2;
+    }
+  }
+  &__inlined & {
+    margin-top: 0;
+  }
+
+  &.is-invalid {
+    label {
+      color: $color-error;
+    }
+  }
+  &.is-disabled {
+    label {
+      color: $color-disabled;
+    }
+  }
+}
+
+.c-radio {
+  label:before {
+    border-radius: 50%;
+  }
+}
+
+[class^="c-feedback"] {
+  position: absolute;
+  font-size: .5em;
+  margin-top: -1.5em;
+  text-transform: uppercase;
+  color: $color-error;
+  font-weight: bold;
+  display: none;
+  .is-invalid + & {
+    display: block;
+  }
+}

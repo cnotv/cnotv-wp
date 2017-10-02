@@ -1,37 +1,75 @@
 // Grid settings
-$enable-flex:          			true;
-$main-sm-columns:      			12;
-$sidebar-sm-columns:   	 		4;
+$enable-flex:                         true;
+$main-sm-columns:                     12;
+$sidebar-sm-columns:                  4;
+
+
+// Layout
+$container-width:                     1200px;
+$container-s-width:                   $container-width*4/6;
+$grid-gutter-size:                    15px;
+$section-padding:                     2rem;
+
 
 // Fonts
-// $font-family-base:					'Droid Serif';
-// $font-family-base:				'Roboto Mono', Georgia, "Times New Roman", Times, serif;
-$font-family-base:				'Roboto', -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-// $headings-font-family:			'Rubik',  -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-$headings-font-family:			'Rubik',  -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-$headings-font-weight:			700;
-$headings-margin-bottom:		1rem;
-$letter-spacing-base:				.5px;
+$font-family-base:                    'Roboto', -apple-system, system-ui, "Helvetica Neue", Arial, sans-serif;
+$headings-font-family:                'Rubik',  -apple-system, system-ui, "Helvetica Neue", Arial, sans-serif;
+
+$font-size-base:                      1rem !default;
+$font-weight-base:                    normal !default;
+$letter-spacing-base:                 .5px !default;
+$line-height-base:                    1.5 !default;
+
+$headings-margin-bottom:              1rem;
+$headings-font-weight:                700;
+$headings-line-height:                1.1 !default;
+$font-size-h1:                        2.5rem !default;
+$font-size-h2:                        2rem !default;
+$font-size-h3:                        1.75rem !default;
+$font-size-h4:                        1.5rem !default;
+$font-size-h5:                        1.25rem !default;
+$font-size-h6:                        1rem !default;
 
 // Colors
-// $brand-primary:        	#DDE7E5;
-// $body-bg:								#34706E;
-$brand-primary:       		  #333;
-$body-bg:										#f1f1f1;
-$body-color:								$brand-primary;
-$link-bg-color:							#fff;
-$link-active-color:					#dadada;
-$modal-shadow-color:				rgba(0,0,0,0.7);
+$colors: (
+  white:                              "#fff",
+  black:                              "#333",
+  red:                                "red",
+  grey:                               "#dadada",
+  lightgrey:                          "#f1f1f1",
+  grey-l:                             "lightgrey",
+);
 
-$website-width:							1400px;
-$website-padding:						30px;
-$website-border-size:				2px;
-$website-border:						$website-border-size solid $body-color;
-$menu-padding:							1.6rem;
-$menu-mobile-offset:				80px;
+$zindex: (
+  dropdown:                           '10',
+);
+
+$brand-primary:                       color(black);
+$brand-secondary:                     color(grey);
+$body-bg:                             color(lightgrey);
+$body-color:                          $brand-primary;
+$color-error:                         color(red);
+$color-disabled:                      color(grey-l);
+
+$bg-nav:                              color(white);
+$bg-dropdown:                         color(white);
+$bg-card:                             color(white);
+$bg-link:                             color(white);
+$bg-link-hover:                       color(grey);
+$modal-shadow-color:                  rgba(0,0,0,0.7);
+
+$website-shadow:                      4px 4px 0 0px color(black);
+$website-shadow-hover:                8px 8px 0 0px color(black);
+
+$website-border-radius:               2px !default;
+$website-border-size:                 2px !default;
+$website-border:                      $website-border-size solid color(black);
+$website-border-secondary:            $website-border-size/2 solid color(black);
+$menu-padding:                        1.2rem !default;
+$menu-mobile-offset:                  80px !default;
 
 
-$zindex-modal:							1050;
+$zindex-modal:                        1050;
 
 // Font Awesome | see: http://fontawesome.io/get-started/
 // $fa-font-path:          '~font-awesome/fonts';

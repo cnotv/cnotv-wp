@@ -1,0 +1,11 @@
+[class^="c-logo"] {
+}
+
+.c-logo {
+  // margin: $grid-gutter-size auto $grid-gutter-size*1.5;
+  margin: $grid-gutter-size*2 auto;
+  display: block;
+  max-height: $grid-gutter-size*4;
+  width: auto;
+  max-width: 50%;
+}

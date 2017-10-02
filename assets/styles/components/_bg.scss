@@ -1,0 +1,17 @@
+.c-bg {
+  &-l-grey {
+    background-color: $body-bg;
+  }
+  &-black {
+    background-color: $brand-primary;
+  }
+  &-white {
+    background-color: $bg-link;
+  }
+  &-red {
+    background-color: $color-error;
+  }
+  &-grey {
+    background-color: $color-disabled;
+  }
+}

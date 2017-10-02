@@ -7,90 +7,160 @@ $viewports: (
 );
 
 @mixin media-bp($prefix) {
-  $media-query: map-get($viewports, $prefix);
-  @media #{$media-query} {
-    @content;
+  @if map-get($viewports, $prefix) {
+    $media-query: map-get($viewports, $prefix);
+    @media #{$media-query} {
+      @content;
+    }
+  } @else {
+    @warn 'please define a real device';
   }
 }
 
+@function color($value) {
+  @if map-get($colors, $value) {
+    $color: map-get($colors, $value);
+    @return #{$color}
+  } @else {
+    @warn 'The color '$value' does not exist';
+    @break
+  }
+}
+
+@function zindex($value) {
+  @if map-get($zindex, $value) {
+    $zindex: map-get($zindex, $value);
+    @return #{$zindex}
+  } @else {
+    @warn 'The z-index '$value' does not exist';
+    @break
+  }
+}
+
+@mixin grid-row($padding: true) {
+  display: flex;
+  flex-flow: row wrap;
+  @if ($padding == true) {
+    @include media-bp(desktop) {
+      margin-left: -$grid-gutter-size;
+      margin-right: -$grid-gutter-size;
+    }
+    @include media-bp(mobile) {
+      margin-left: -$grid-gutter-size/2;
+      margin-right: -$grid-gutter-size/2;
+    }
+  }
+}
+
+@mixin grid-col($size: 1, $sizeMobile: 1, $padding: true) {
+  
+  @if ($padding == true) {
+    @include media-bp(desktop) {
+      padding-left: $grid-gutter-size;
+      padding-right: $grid-gutter-size;
+    }
+    @include media-bp(mobile) {
+      padding-left: $grid-gutter-size/2;
+      padding-right: $grid-gutter-size/2;
+    }
+  }
+
+  @if ($size != 1) {
+    @include media-bp(desktop) {
+      width: calc(100% * #{$size});
+    }
+  } @else {
+    width: 100%;
+  }
+
+  @if ($sizeMobile != 1) {
+    @include media-bp(mobile) {
+      width: calc(100% * #{$sizeMobile});
+    }
+  } @else {
+    @include media-bp(mobile) {
+      width: 100%;
+    }
+  }
+}
+
+
 @mixin link_style {
-	background-color: $link-active-color;
-	margin: -0.2em;
-	padding: 0.2em;
-	border: 0.2em solid transparent;
-	background-clip: padding-box;
-	transition: background-color 0.2s;
-	line-height: 1.5em;
-	border-radius: 5px;
-	&:hover,
-	&:focus {
-		text-decoration: none;
-		background-color: $link-bg-color;
-	}
+  background-color: $bg-link-hover;
+  margin: -0.1em;
+  padding: 0.1em;
+  border: 0.1em solid transparent;
+  background-clip: padding-box;
+  transition: background-color 0.2s;
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    background-color: $bg-link;
+  }
   @content;
 }
 
 @mixin menu_item {
-	display: block;
-	font-weight: 600;
-	@include media-bp(desktop) {
-		padding: $menu-padding;
-	}
-	@include media-bp(mobile) {
-		line-height: 1;
-		padding: $menu-padding/1.5;
-		font-size: 1.5em;
-	}
-	&:hover,
-	&:focus {
-		text-decoration: none;
-		@include media-bp(desktop) {
-			background-color: $link-bg-color;
-		}
-	}
+  display: block;
+  font-weight: 600;
+  @include media-bp(desktop) {
+    padding: $menu-padding;
+  }
+  @include media-bp(mobile) {
+    line-height: 1;
+    padding: $menu-padding/1.5;
+    font-size: 1.5em;
+  }
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    @include media-bp(desktop) {
+      background-color: $bg-link;
+    }
+  }
 }
 
 @mixin modal {
-	@include media-bp(desktop) {
-		width: calc(100% - #{$website-padding*4});
-		margin-left: $website-padding*4;
-	}
+  @include media-bp(desktop) {
+    width: calc(100% - #{$grid-gutter-size*4});
+    margin-left: $grid-gutter-size*4;
+  }
 }
 
 @mixin menu_open {
-	.has-menu-open & {
-		@include media-bp(mobile) {
-			@content;
-		}
-	}
+  .has-menu-open & {
+    @include media-bp(mobile) {
+      @content;
+    }
+  }
 }
 
 @mixin search_open {
-	.has-search-open & {
-		@content;
-	}
+  .has-search-open & {
+    @content;
+  }
 }
 
 @mixin loader {
-	width: .85em;
-	height: .85em;
-	border-radius: 50%;
-	border: .2em solid $brand-primary;
-	border-bottom-color: transparent;
-	animation: rotate360 1s linear infinite;
-	&:before {
-		content: "";
-	}
+  width: .85em;
+  height: .85em;
+  border-radius: 50%;
+  border: .2em solid $brand-primary;
+  border-bottom-color: transparent;
+  animation: rotate360 1s linear infinite;
+  &:before {
+    content: "";
+  }
 }
 
 
 @mixin animationDelay {
-	// &:nth-of-type(n+2) {
-	// 	animation-delay: 2s;
-	// }
-	@for $i from 1 through 20 {
-		&:nth-of-type(n+#{$i}) {
-			animation-delay: #{$i/10}s;
-		}
-	}
+  // &:nth-of-type(n+2) {
+  //  animation-delay: 2s;
+  // }
+  @for $i from 1 through 20 {
+    &:nth-of-type(n+#{$i}) {
+      animation-delay: #{$i/10}s;
+    }
+  }
 }

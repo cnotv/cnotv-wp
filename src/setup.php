@@ -12,11 +12,11 @@ use Roots\Sage\Template\BladeProvider;
  * Theme assets
  */
 add_action('wp_enqueue_scripts', function () {
+
     wp_enqueue_style( 'google_fonts1', '//fonts.googleapis.com/css?family=Rubik:400italic,400,700', false, null );
-    // wp_enqueue_style( 'google_fonts2', '//fonts.googleapis.com/css?family=Droid+Serif:400italic,400,700', false, null );
     wp_enqueue_style( 'google_fonts2', '//fonts.googleapis.com/css?family=Roboto+Mono:400italic,400,700', false, null );
     wp_enqueue_style('sage/main.css', asset_path('styles/main.css'), false, null);
-    wp_enqueue_script('sage/main.js', asset_path('scripts/main.js'), ['jquery'], null, true);
+    wp_enqueue_script('sage/script', asset_path('scripts/main.js'), ['jquery'], null, true);
 }, 100);
 
 /**
@@ -93,14 +93,6 @@ add_action('widgets_init', function () {
     register_sidebar([
         'name'          => __('Footer B', 'sage'),
         'id'            => 'sidebar-footer-b'
-    ] + $config);
-    register_sidebar([
-        'name'          => __('Footer C', 'sage'),
-        'id'            => 'sidebar-footer-c'
-    ] + $config);
-    register_sidebar([
-        'name'          => __('Footer D', 'sage'),
-        'id'            => 'sidebar-footer-d'
     ] + $config);
 });
 

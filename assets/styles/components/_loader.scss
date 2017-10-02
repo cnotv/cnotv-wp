@@ -1,0 +1,16 @@
+.c-loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 3rem;
+  
+  width: .85em;
+  height: .85em;
+  border-radius: 50%;
+  border: .2em solid $brand-primary;
+  border-bottom-color: transparent;
+  animation: rotate360 1s linear infinite;
+  &:before {
+    content: "";
+  }
+}

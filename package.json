@@ -73,7 +73,6 @@
     "yargs": "^7.1.0"
   },
   "dependencies": {
-    "bootstrap": "^4.0.0-alpha.6",
     "font-awesome": "^4.7.0",
     "jquery": "1.12.4 - 3",
     "stickyfill": "^1.1.1",

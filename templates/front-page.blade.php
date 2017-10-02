@@ -1,28 +1,31 @@
 @extends('layouts.base')
 @section('content')
-  <?php while (have_posts()) : the_post(); ?>
-    <section class="cnotv__hero cnotv__flexgrid cnotv__flexgrid--invertwrap">
-      <div class="cnotv__flexgrid__column cnotv__flexgrid__column--fill">
-        <?php get_template_part('partials/content-page'); ?>
-        <?php get_template_part('partials/cloud-subfields'); ?>
-      </div>
-      <div class="cnotv__flexgrid__column cnotv__flexgrid__column--4">
-        <h2 class="h5">My working tools:</h2>
-        <?php get_template_part('partials/cloud-tools'); ?>
-      </div>
-    </section>
+  @while(have_posts()) @php(the_post())
+    <article class="c-section">
+      <div class="c-container-s">
+        @include('partials.content-page')
 
-    <?php
-    $categories = get_terms( 'portfolio_category' );
-    foreach ( $categories as $category ) { ?>
-      <section class="cnotv__section">
-        <hr class="cnotv__divider">
-        <a class="cnotv__more" href="<?php echo esc_url( get_category_link( $category->term_id ) ) ?>"><h2 class="h5">Latest <?php echo $category->name ?> <i class="fa"></i></h2></a>
-        <div class="cnotv__flexgrid">
+        <div class="c-row">
+          <div class="c-col-2-5">
+            {!! taxonomy_cloud('subfields') !!}
+          </div>
+          <div class="c-col-3-5">
+            {!! taxonomy_cloud('tools') !!}
+          </div>
+        </div>
+      </div>
+    </article>
+  @endwhile
+
+  @php ($categories = get_terms('portfolio_category'))
+  @foreach ( $categories as $category )
+    <section class="c-section">
+      <div class="c-container">
+        <div class="c-row">
           <?php 
           $args = array( 
             'post_type' => 'portfolio',
-            'posts_per_page' => 4,
+            'posts_per_page' => 3,
             'tax_query' => array(
               array(
                 'taxonomy' => 'portfolio_category',
@@ -31,28 +34,43 @@
               )
             )
           );
-          $query = new WP_Query( $args );      
-          while ( $query->have_posts()) : $query->the_post(); ?>
-            <?php get_template_part('partials/content-portfolio', get_post_type() != 'portfolio' ? get_post_type() : get_post_format()); ?>
-          <?php endwhile; ?>
+          $query = new WP_Query( $args ); ?>
+          @while ($query->have_posts()) @php($query->the_post())
+            @include('partials.content-portfolio')
+          @endwhile
+
+          <article class="c-col-1-4 c-card fadeInUp">
+            <a href="{{esc_url( get_category_link( $category->term_id ))}}">
+              <div class="c-card__wrap">
+                <section>
+                  <p>Latest {{$category->name}}</p>
+                  <i class="fa fa-plus"></i>
+                </section>
+              </div>
+            </a>
+          </article>
         </div>
-      </section>
-    <?php }?>
-    
-    <section class="cnotv__section">
-      <hr class="cnotv__divider">
-      <a class="cnotv__more" href="blog"><h2 class="h5">Latest articles <i class="fa"></i></h2></a>
-      <div class="cnotv__flexgrid">
-        <?php 
-        $args = array( 
-          'post_type' => 'post',
-          'posts_per_page' => 4
-        );
-        $query = new WP_Query( $args );      
-        while ( $query->have_posts()) : $query->the_post(); ?>
-          <?php get_template_part('partials/content', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
-        <?php endwhile; ?>
       </div>
     </section>
-  <?php endwhile; ?>
+  @endforeach
+  
+  <section class="c-section">
+    <div class="c-container-s">
+      <?php 
+      $args = array( 
+        'post_type' => 'post',
+        'posts_per_page' => 4
+      );
+      $query = new WP_Query( $args ); ?>
+      @while ($query->have_posts()) @php($query->the_post())
+        @include('partials.content')
+        <br>
+      @endwhile
+
+      <div class="c-row c-row--padding-2 c-row--center">
+          <a class="" href="blog"><i class="fa fa-plus"></i></a>
+      </div>
+    </div>
+  </section>
+  
 @endsection

@@ -1,21 +1,29 @@
 @extends('layouts.base')
 
 @section('content')
-	@while(have_posts()) @php(the_post())
-		<div class="cnotv__flexgrid cnotv__flexgrid--invertwrap">
-			<section class="cnotv__flexgrid__column cnotv__flexgrid__column--fill">
-				@include('partials/content-single-'.get_post_type())
-			</section>
-			<section class="cnotv__flexgrid__column cnotv__flexgrid__column--4">
-				@include('partials/pagination')
-				@include('partials/entry-meta')
-				@include('partials/entry-meta-portfolio')
-				<?php dynamic_sidebar('sidebar-primary'); ?>
-			</section>
-		</div>
+  <section class="c-section">
+    <div class="c-container-s">
 
-		<hr class="cnotv__divider clearfix">
-		@include('partials/related-post')
-	@endwhile
+      @while(have_posts()) @php(the_post())
+        <div class="c-row">
+          <section class="c-col-3-4">
+            @include('partials/content-single-'.get_post_type())
+          </section>
+          <aside class="c-col-1-4">
+            @include('partials/pagination')
+            @include('partials/entry-meta')
+            @php(dynamic_sidebar('sidebar-primary'))
+          </aside>
+        </div>
+      @endwhile
+        
+    </div>
+  </section>
+
+  <section class="c-section">
+    <div class="c-container-s">
+      @include('partials/related-post')
+    </div>
+  </section>
 @endsection
 

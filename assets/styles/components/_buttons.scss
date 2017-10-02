@@ -1,0 +1,63 @@
+@mixin buttonBg($color1, $color2){
+  &:hover {
+    background-image: linear-gradient(225deg, $color1 0%, $color1 .5rem, transparent .5rem, transparent 100%);
+  }
+  &:active {
+    background-image: linear-gradient(225deg, $color2 0%, $color2 .5rem, transparent .5rem, transparent 100%);
+  }
+  &.is-active {
+    background-image: linear-gradient(45deg, $color1 0%, $color1 .5rem, transparent .5rem, transparent 100%);
+  }
+  &.is-active:hover {
+    background-image: linear-gradient(45deg, $color1 0%, $color1 .5rem, transparent .5rem, transparent 100%),
+                      linear-gradient(225deg, $color2 0%, $color2 .5rem, transparent .5rem, transparent 100%);
+  }
+}
+
+[class^="c-btn"] {
+  border: $website-border;
+  padding: .8em 1.8em;
+  background-color: transparent;
+  cursor: pointer;
+  display: inline-block;
+  transition: all 0.2s;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  font-size: .8em;
+  text-transform: uppercase;
+
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none;
+    outline: none;
+  }
+
+  i {
+    margin-left: 1.5em;
+  }
+
+  &[disabled],
+  &:disabled {
+    &, &:hover, &:active, &.is-active, &.is-active:hover {
+      color: $body-bg;
+      background-color: $color-disabled;
+      border-color: $color-disabled;
+      background-image: none;
+    }
+  }
+}
+
+.c-btn {
+  &-cta {
+    background-color: $body-color;
+    border-color: $body-color;
+    color: $body-bg;
+    @include buttonBg($body-bg, $brand-secondary);
+  }
+
+  &-alt {
+    @include buttonBg($brand-primary, $brand-secondary);
+  }
+}
