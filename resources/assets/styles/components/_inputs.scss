@@ -11,20 +11,23 @@
     outline: none;
   }
 
-
   &:disabled,
   &[disabled],
   &.is-disabled {
     color: $color-disabled;
+
     &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
       color: $color-disabled;
     }
+
     &::-moz-placeholder { /* Firefox 19+ */
       color: $color-disabled;
     }
+
     &:-ms-input-placeholder { /* IE 10+ */
       color: $color-disabled;
     }
+
     &:-moz-placeholder { /* Firefox 18- */
       color: $color-disabled;
     }
@@ -34,6 +37,7 @@
     color: $color-error;
     box-shadow: none;
   }
+
   &:-moz-submit-invalid,
   &:-moz-ui-invalid,
   &:invalid {
@@ -41,7 +45,6 @@
     box-shadow: none;
   }
 }
-
 
 .c-input {
   &__select {
@@ -52,14 +55,16 @@
       color: transparent;
       text-shadow: 0 0 0 #000;
     }
+
     &::-ms-expand {
-      opacity:0;
+      opacity: 0;
       display: none;
     }
+
     &:focus::-ms-value {
       background: transparent;
     }
-    
+
     option {
       padding: $menu-padding/4 $menu-padding/2;
       background-color: $bg-link-hover;
@@ -78,38 +83,43 @@
 
 .c-radio,
 .c-checkbox {
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
 
   input { display: none; }
+
   label {
     cursor: pointer;
-    &:before {
+
+    &::before {
       content: "";
       height: 1.5em;
       width: 1.5em;
       display: inline-block;
-      margin-right: .5em;
+      margin-right: 0.5em;
       border: $website-border;
       vertical-align: bottom;
       cursor: pointer;
       background-color: currentcolor;
-      transition: box-shadow .2s;
+      transition: box-shadow 0.2s;
       box-shadow: inset 0 0 0 1em $bg-link;
     }
-    &:hover:before {
-      box-shadow: inset 0 0 0 .5em $bg-link;
+
+    &:hover::before {
+      box-shadow: inset 0 0 0 0.5em $bg-link;
     }
   }
+
   input:checked + label {
-    &:before {
+    &::before {
       background-color: currentcolor;
-      box-shadow: inset 0 0 0 .1em $bg-link;
+      box-shadow: inset 0 0 0 0.1em $bg-link;
     }
   }
 
   [class^="c-input"] ~ & {
     margin-top: $section-padding/2;
   }
+
   & + & {
     margin-top: 12px;
   }
@@ -120,7 +130,7 @@
 
   &__inlined {
     width: 100%;
-    
+
     [class^="c-input"] ~ & {
       margin-top: $section-padding/2;
     }
@@ -128,13 +138,16 @@
     & ~ [class^="c-input"] {
       margin-top: $section-padding/2;
     }
+
     .c-radio {
       display: inline-block;
     }
+
     .c-radio + .c-radio {
       margin-left: $section-padding/2;
     }
   }
+
   &__inlined & {
     margin-top: 0;
   }
@@ -144,6 +157,7 @@
       color: $color-error;
     }
   }
+
   &.is-disabled {
     label {
       color: $color-disabled;
@@ -152,19 +166,20 @@
 }
 
 .c-radio {
-  label:before {
+  label::before {
     border-radius: 50%;
   }
 }
 
 [class^="c-feedback"] {
   position: absolute;
-  font-size: .5em;
+  font-size: 0.5em;
   margin-top: -1.5em;
   text-transform: uppercase;
   color: $color-error;
   font-weight: bold;
   display: none;
+
   .is-invalid + & {
     display: block;
   }

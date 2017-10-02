@@ -7,22 +7,48 @@ body {
   background-color: $body-bg;
 }
 
-h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
   font-family: $headings-font-family;
   font-weight: $headings-font-weight;
   line-height: $headings-line-height;
   color: inherit;
 }
 
-h1, .h1 { font-size: $font-size-h1; }
-h2, .h2 { font-size: $font-size-h2; }
-h3, .h3 { font-size: $font-size-h3; }
-h4, .h4 { font-size: $font-size-h4; }
-h5, .h5 { font-size: $font-size-h5; }
-h6, .h6 { font-size: $font-size-h6; }
+h1,
+.h1 { font-size: $font-size-h1; }
 
-h1, h2, h3, h4, h5, h6 {
+h2,
+.h2 { font-size: $font-size-h2; }
+
+h3,
+.h3 { font-size: $font-size-h3; }
+
+h4,
+.h4 { font-size: $font-size-h4; }
+
+h5,
+.h5 { font-size: $font-size-h5; }
+
+h6,
+.h6 { font-size: $font-size-h6; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin-top: 0;
   margin-bottom: $headings-margin-bottom;
 }
@@ -41,24 +67,24 @@ hr {
 
 small,
 .small {
-  font-size: .8em;
+  font-size: 0.8em;
 }
 
 blockquote {
   margin: $grid-gutter-size*2 0;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   font-size: 1.2em;
   border-left: $website-border;
   font-weight: lighter;
   font-style: italic;
-  &>*:last-child {
+
+  & > *:last-child {
     margin-bottom: 0;
   }
 }
 
-
 pre {
-  font-size: .8rem;
+  font-size: 0.8rem;
   border: $website-border-secondary;
   color: color(black);
   max-width: 100%;
@@ -68,10 +94,11 @@ pre {
   box-shadow: $website-shadow;
 
   @include media-bp(desktop) {
-    padding: .5rem 2rem;
+    padding: 0.5rem 2rem;
   }
+
   @include media-bp(mobile) {
-    padding: .5rem 1rem;
+    padding: 0.5rem 1rem;
   }
 }
 
@@ -80,7 +107,7 @@ table {
   margin: $grid-gutter-size*2 0;
   border: $website-border;
   box-shadow: $website-shadow;
-  
+
   @include media-bp(mobile) {
     display: block;
     overflow: scroll;
@@ -92,8 +119,9 @@ th {
   background-color: color(grey);
 }
 
-th, td {
-  padding: .5rem;
+th,
+td {
+  padding: 0.5rem;
   border: $website-border-secondary;
 
   @include media-bp(mobile) {

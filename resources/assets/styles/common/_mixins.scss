@@ -9,10 +9,13 @@ $viewports: (
 @mixin media-bp($prefix) {
   @if map-get($viewports, $prefix) {
     $media-query: map-get($viewports, $prefix);
+
     @media #{$media-query} {
       @content;
     }
-  } @else {
+  }
+
+  @else {
     @warn 'please define a real device';
   }
 }
@@ -20,31 +23,41 @@ $viewports: (
 @function color($value) {
   @if map-get($colors, $value) {
     $color: map-get($colors, $value);
-    @return #{$color}
-  } @else {
+
+    @return #{$color};
+  }
+
+  @else {
     @warn 'The color '$value' does not exist';
-    @break
+
+    @break;
   }
 }
 
 @function zindex($value) {
   @if map-get($zindex, $value) {
     $zindex: map-get($zindex, $value);
-    @return #{$zindex}
-  } @else {
+
+    @return #{$zindex};
+  }
+
+  @else {
     @warn 'The z-index '$value' does not exist';
-    @break
+
+    @break;
   }
 }
 
 @mixin grid-row($padding: true) {
   display: flex;
   flex-flow: row wrap;
+
   @if ($padding == true) {
     @include media-bp(desktop) {
       margin-left: -$grid-gutter-size;
       margin-right: -$grid-gutter-size;
     }
+
     @include media-bp(mobile) {
       margin-left: -$grid-gutter-size/2;
       margin-right: -$grid-gutter-size/2;
@@ -53,12 +66,12 @@ $viewports: (
 }
 
 @mixin grid-col($size: 1, $sizeMobile: 1, $padding: true) {
-  
   @if ($padding == true) {
     @include media-bp(desktop) {
       padding-left: $grid-gutter-size;
       padding-right: $grid-gutter-size;
     }
+
     @include media-bp(mobile) {
       padding-left: $grid-gutter-size/2;
       padding-right: $grid-gutter-size/2;
@@ -69,7 +82,9 @@ $viewports: (
     @include media-bp(desktop) {
       width: calc(100% * #{$size});
     }
-  } @else {
+  }
+
+  @else {
     width: 100%;
   }
 
@@ -77,13 +92,14 @@ $viewports: (
     @include media-bp(mobile) {
       width: calc(100% * #{$sizeMobile});
     }
-  } @else {
+  }
+
+  @else {
     @include media-bp(mobile) {
       width: 100%;
     }
   }
 }
-
 
 @mixin link_style {
   background-color: $bg-link-hover;
@@ -92,28 +108,34 @@ $viewports: (
   border: 0.1em solid transparent;
   background-clip: padding-box;
   transition: background-color 0.2s;
+
   &:hover,
   &:focus {
     text-decoration: none;
     background-color: $bg-link;
   }
+
   @content;
 }
 
 @mixin menu_item {
   display: block;
   font-weight: 600;
+
   @include media-bp(desktop) {
     padding: $menu-padding;
   }
+
   @include media-bp(mobile) {
     line-height: 1;
     padding: $menu-padding/1.5;
     font-size: 1.5em;
   }
+
   &:hover,
   &:focus {
     text-decoration: none;
+
     @include media-bp(desktop) {
       background-color: $bg-link;
     }
@@ -142,17 +164,17 @@ $viewports: (
 }
 
 @mixin loader {
-  width: .85em;
-  height: .85em;
+  width: 0.85em;
+  height: 0.85em;
   border-radius: 50%;
-  border: .2em solid $brand-primary;
+  border: 0.2em solid $brand-primary;
   border-bottom-color: transparent;
   animation: rotate360 1s linear infinite;
-  &:before {
+
+  &::before {
     content: "";
   }
 }
-
 
 @mixin animationDelay {
   // &:nth-of-type(n+2) {

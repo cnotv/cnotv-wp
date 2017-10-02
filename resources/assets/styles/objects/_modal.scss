@@ -14,7 +14,7 @@
   &__wrap {
     @include modal;
   }
-  
+
   &.is-open {
     overflow-x: hidden;
     overflow-y: auto;
@@ -26,11 +26,6 @@
     padding: 8vh 4vw;
     background-color: $body-bg;
     min-height: 100vh;
-  }
-
-  aside {
-    @include media-bp(mobile) {
-    }
   }
 }
 

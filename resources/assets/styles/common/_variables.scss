@@ -3,13 +3,11 @@ $enable-flex:                         true;
 $main-sm-columns:                     12;
 $sidebar-sm-columns:                  4;
 
-
 // Layout
 $container-width:                     1200px;
 $container-s-width:                   $container-width*4/6;
 $grid-gutter-size:                    15px;
 $section-padding:                     2rem;
-
 
 // Fonts
 $font-family-base:                    'Roboto', -apple-system, system-ui, "Helvetica Neue", Arial, sans-serif;
@@ -17,7 +15,7 @@ $headings-font-family:                'Rubik',  -apple-system, system-ui, "Helve
 
 $font-size-base:                      1rem !default;
 $font-weight-base:                    normal !default;
-$letter-spacing-base:                 .5px !default;
+$letter-spacing-base:                 0.5px !default;
 $line-height-base:                    1.5 !default;
 
 $headings-margin-bottom:              1rem;
@@ -56,10 +54,10 @@ $bg-dropdown:                         color(white);
 $bg-card:                             color(white);
 $bg-link:                             color(white);
 $bg-link-hover:                       color(grey);
-$modal-shadow-color:                  rgba(0,0,0,0.7);
+$modal-shadow-color:                  rgba(0, 0, 0, 0.7);
 
-$website-shadow:                      4px 4px 0 0px color(black);
-$website-shadow-hover:                8px 8px 0 0px color(black);
+$website-shadow:                      4px 4px 0 0 color(black);
+$website-shadow-hover:                8px 8px 0 0 color(black);
 
 $website-border-radius:               2px !default;
 $website-border-size:                 2px !default;
@@ -68,12 +66,8 @@ $website-border-secondary:            $website-border-size/2 solid color(black);
 $menu-padding:                        1.2rem !default;
 $menu-mobile-offset:                  80px !default;
 
-
 $zindex-modal:                        1050;
 
 // Font Awesome | see: http://fontawesome.io/get-started/
 // $fa-font-path:          '~font-awesome/fonts';
 $fa-font-path:        "//netdna.bootstrapcdn.com/font-awesome/4.7.0/fonts" !default; // for referencing Bootstrap CDN font files directly
-
-
-
