@@ -30,7 +30,7 @@ add_filter('body_class', function (array $classes) {
  * Add "… Continued" to the excerpt
  */
 add_filter('excerpt_more', function () {
-    return ' &hellip; <a href="' . get_permalink() . '">' . __('Continued', 'sage') . '</a>';
+    return ' &hellip;';
 });
 
 /**
@@ -67,4 +67,11 @@ add_filter('comments_template', function ($comments_template) {
         $comments_template
     );
     return template_path(locate_template(["views/{$comments_template}", $comments_template]) ?: $comments_template);
+});
+
+/**
+ * Search update
+ */
+add_filter('get_search_form', function(){  
+  return template(locate_template('/views/partials/searchform.blade.php'));  
 });

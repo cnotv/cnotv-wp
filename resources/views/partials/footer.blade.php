@@ -1,5 +1,5 @@
 <footer class="c-section">
-  <div class="c-container-s">
+  <div class="c-container">
     <nav class="o-nav-h">
       <div>
         @php(dynamic_sidebar('sidebar-footer-a'))

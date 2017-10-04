@@ -8,21 +8,18 @@ export default {
     $('.js-modal').on('click', function modalLink() {
       // TODO search how to target main
       const modalcontent = $(this).attr('href');
-      $('#cnotvModal .modal-content').empty().append('<div class="cnotv__loader"></div>');
+      $('#cnotvModal .modal-content').empty().append('<div class="c-loader"></div>');
       $('#cnotvModal .modal-content').load(modalcontent);
       $('body').addClass('is-modal-open');
     });
     $('.js-search').on('click', () => {
-      $('body').addClass('has-search-open').removeClass('has-menu-open');
-      $('.search-field').focus();
-    });
-    $('.js-search__close').on('click', () => {
-      $('body').removeClass('has-search-open');
+      $('body').toggleClass('has-search-open').removeClass('has-menu-open');
+      $('.search-field').focus().val('');
     });
     $('.js-burger').on('click', () => {
       $('body').toggleClass('has-menu-open').removeClass('has-search-open');
     });
-    $('.cnotv__navbar__menu a').on('click', () => {
+    $('.o-nav a').on('click', () => {
       $('.js-burger').toggleClass('is-loading');
     });
 
@@ -39,7 +36,7 @@ export default {
         // whenever question changes, this function will run
         question: function () {
           // this.result = ''
-          this.status = '<i class="fa fa-pencil"></i>'
+          this.status = '<i class="o-search__status__typing"></i>'
           this.getResult()
         },
       },
@@ -47,7 +44,7 @@ export default {
         getResult: _.debounce(
           function () {
             if (this.question) {
-              this.status = '<i class="fa fa-search"></i>'
+              this.status = '<i class="o-search__status__search"></i>'
               var vm = this
               // var searchUrl = vm.generateUrl()
               var searchUrl = this.url + '?per_page=10&search=' + this.question
