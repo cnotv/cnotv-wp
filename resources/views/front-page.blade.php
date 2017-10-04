@@ -7,10 +7,10 @@
 
         <div class="c-row">
           <div class="c-col-2-5">
-            {!! taxonomy_cloud('subfields') !!}
+            {!! taxonomy_cloud('subfields','Projects type') !!}
           </div>
           <div class="c-col-3-5">
-            {!! taxonomy_cloud('tools') !!}
+            {!! taxonomy_cloud('tools','My stack') !!}
           </div>
         </div>
       </div>
@@ -39,10 +39,10 @@
             @include('partials.content-portfolio')
           @endwhile
 
-          <article class="c-col-1-4 c-card fadeInUp">
+          <article class="c-col-1-4 o-card fadeInUp">
             <a href="{{esc_url( get_category_link( $category->term_id ))}}">
-              <div class="c-card__wrap">
-                <section>
+              <div class="o-card__wrap">
+                <section class="o-card--center">
                   <p>Latest {{$category->name}}</p>
                   <i class="fa fa-plus"></i>
                 </section>
@@ -64,6 +64,7 @@
       $query = new WP_Query( $args ); ?>
       @while ($query->have_posts()) @php($query->the_post())
         @include('partials.content')
+        <br>
         <br>
       @endwhile
 

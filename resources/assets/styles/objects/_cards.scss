@@ -1,13 +1,8 @@
-.c-card {
+.o-card {
   position: relative;
   max-width: 100%;
   border-radius: $website-border-radius;
-
-  & + & {
-    @include media-bp(mobile) {
-      margin-top: $section-padding;
-    }
-  }
+  margin-bottom: $section-padding;
 
   &__wrap {
     display: flex;
@@ -16,7 +11,7 @@
     transition: box-shadow 0.2s;
     box-shadow: $website-shadow;
     background-color: $bg-card;
-    border: $website-border-secondary;
+    border: $website-border;
 
     &:hover {
       box-shadow: $website-shadow-hover;
@@ -49,5 +44,12 @@
     & > *:last-child {
       margin-bottom: 0;
     }
+  }
+
+  &--center {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }

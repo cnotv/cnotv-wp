@@ -221,22 +221,22 @@ class bs4Navwalker extends Walker_Nav_Menu
   }
 }
 
-function cnotv_nav_menu() {
-  if (has_nav_menu('primary_navigation')) :
+function cnotv_nav_menu($nav_name) {
+  if (has_nav_menu($nav_name)) :
     wp_nav_menu([ 
       'menu' => 'primary',
-      'theme_location' => 'primary_navigation',
+      'theme_location' => $nav_name,
       'container' => '%3$s',
       'container_id' => '',
       'container_class' => '',
       'menu_id' => false,
-      'menu_class' => '',
+      'menu_class' => 'o-nav-h__left',
       'depth' => 2,
       // 'fallback_cb' => 'bs4navwalker::fallback',
       // 'walker' => new bs4navwalker()
     ]);
   else:
-    echo '<ul>';
+    echo '<ul class="o-nav-h__left">';
       wp_list_pages( array( 'title_li' => '' ) );
     echo '</ul>';
   endif;

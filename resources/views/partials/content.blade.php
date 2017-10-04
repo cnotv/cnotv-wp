@@ -7,6 +7,5 @@
 
   <footer>
     {!!get_the_tag_list('<p>Tags: ','&nbsp','</p>')!!}
-    @include('partials.social')
   </footer>
 </article>
