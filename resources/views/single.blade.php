@@ -2,7 +2,7 @@
 
 @section('content')
   <section class="c-section">
-    <div class="c-container-s">
+    <div class="c-container">
 
       @while(have_posts()) @php(the_post())
         <div class="c-row">
@@ -21,7 +21,7 @@
   </section>
 
   <section class="c-section">
-    <div class="c-container-s">
+    <div class="c-container">
       @include('partials/related-post')
     </div>
   </section>

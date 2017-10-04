@@ -92,6 +92,7 @@ pre {
   white-space: pre-wrap;
   margin: $grid-gutter-size*2 0;
   box-shadow: $website-shadow;
+  background-color: color(white);
 
   @include media-bp(desktop) {
     padding: 0.5rem 2rem;

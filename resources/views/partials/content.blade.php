@@ -5,5 +5,8 @@
   
   <div class="">{{the_excerpt()}}</div>
 
-  <footer>{!!get_the_tag_list('<p>Tags: ','&nbsp','</p>')!!}</footer>
+  <footer>
+    {!!get_the_tag_list('<p>Tags: ','&nbsp','</p>')!!}
+    @include('partials.social')
+  </footer>
 </article>

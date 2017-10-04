@@ -26,7 +26,6 @@ function cc_mime_types( $mimes ){
    $mimes['svg'] = 'image/svg+xml';
    return $mimes;
 }
-
 add_filter( 'upload_mimes', 'cc_mime_types' );
 
 // after Wordpress 4.7.1
@@ -55,7 +54,6 @@ add_filter('wp_check_filetype_and_ext', 'ignore_upload_ext', 10, 4);
 
 
 
-
 function taxonomy_cloud($taxonomy, $heading = null) {
   if($taxonomy) {
     $terms = get_terms( $taxonomy );
@@ -79,23 +77,46 @@ function taxonomy_cloud($taxonomy, $heading = null) {
 
 
 
-// Share buttons generator
-function share_button($social){
-  $link = get_the_permalink();
-  // $shortlink = shortlink($link);
+function cnotv_shortlink( $permalink ) {
+  $shortlink = $permalink;
+  // $url = 'https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyD_0jRX9K0uRByIfzarC2rXCZ_j6gtIGA8';
 
-  if ($social == 'facebook') {
-    return 'https://www.facebook.com/sharer/sharer.php?u='. $link;
-  };
-  if ($social == 'twitter') {
-    $text = get_the_title();
-    if (strlen($text) > 111) $text = substr($text,0,111). '...';
-    return 'https://twitter.com/intent/tweet?text='. $text .' - '. $link;
-  };
-  if ($social == 'linkedin') {
-    return 'https://www.linkedin.com/shareArticle?mini=true&url='. $link .'&title='. get_the_title() .'&summary='. get_the_excerpt() .'&source=https://firma.de';
-  };
-  if ($social == 'mail') {
-    return 'mailto:?subject='. get_the_title() .'&body='. get_the_excerpt() .' - '. $link .'" title="'. get_the_title();
-  };
+  // // TOFIX - slower page loading
+  // $http = new WP_Http();
+  // $headers = array('Content-Type' => 'application/json');
+  // $result = $http->request($url, array( 'method' => 'POST', 'body' => '{"longUrl": "' . $permalink . '"}', 'headers' => $headers));
+  // $result = json_decode($result['body']);
+  // $shortlink = $result->id;
+
+  return $shortlink;
+}
+
+add_shortcode( 'get_shortlink', 'cnotv_shortlink' );
+
+
+
+// Share buttons generator
+function share_button(){
+  $link = get_the_permalink();
+  $cnotv_shortlink = cnotv_shortlink($link);
+  $title = get_the_title();
+
+  if(has_excerpt()) 
+    $excerpt = get_the_excerpt(); 
+  else 
+    $excerpt = $title;
+
+  if (strlen($title) > 111)
+    $text = substr($title,0,111). '...';
+  else
+    $text = $title;
+
+  $social = [
+    'facebook'  => 'https://www.facebook.com/sharer/sharer.php?u='. $link,
+    'twitter'   => 'https://twitter.com/intent/tweet?text='. $text .' - '. $cnotv_shortlink,
+    'linkedin'  => 'https://www.linkedin.com/shareArticle?mini=true&url='. $link .'&title='. $title .'&summary='. $excerpt . '&source=https://firma.de',
+    'mail'      => 'mailto:?subject='. $title .'&body='. $excerpt .' - '. $link
+  ];
+
+  return $social;
 }
