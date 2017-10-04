@@ -55,6 +55,6 @@ after_success:
       set ftp:ssl-protect-data true;
       set ssl:verify-certificate false;
       open ftp://$FTP_USER:$FTP_PASS@$FTP_HOST:21;
-      mirror -eRv -P 10 -x ^\. -x node_modules/ -x resources/assets/ $FTP_DIR .;
+      mirror -eRv -P 10 -x ^\. -x vendor/ -x node_modules/ -x resources/assets/ $FTP_DIR .;
       quit;"
   - codecov
