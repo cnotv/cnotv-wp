@@ -5,19 +5,16 @@ article {
     height: auto;
   }
 
-  section {
+  section,
+  footer,
+  aside {
     a {
-      background-color: $bg-link-hover;
-      margin: -0.1em;
-      padding: 0.1em;
-      border: 0.1em solid transparent;
-      background-clip: padding-box;
-      transition: background-color 0.2s;
+      padding: 0 0.1em;
+      text-decoration: underline dotted;
 
       &:hover,
       &:focus {
         text-decoration: none;
-        background-color: $bg-link;
       }
     }
   }
