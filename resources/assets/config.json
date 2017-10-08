@@ -9,7 +9,7 @@
     ]
   },
   "publicPath": "/wp-content/themes/cnotv-wp",
-  "devUrl": "http://cnotv.xyz",
+  "devUrl": "http://localhost/wp_mvc/",
   "proxyUrl": "http://localhost:3200",
   "cacheBusting": "[name]_[hash:8]",
   "watch": [
