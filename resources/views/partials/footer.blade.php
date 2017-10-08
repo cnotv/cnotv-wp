@@ -1,3 +1,4 @@
+@if( is_active_sidebar('sidebar-footer-a') || is_active_sidebar('sidebar-footer-b') )
 <section class="c-section">
   <div class="c-container-s">
     <div class="c-row">
@@ -10,7 +11,9 @@
     </div>
   </div>
 </section>
+@endif
 
+@if( has_nav_menu('footer_navigation_left') || has_nav_menu('footer_navigation_right') )
 <footer class="c-section">
   <div class="c-container">
     <nav class="o-nav-h">
@@ -23,5 +26,6 @@
     </div>
   </div>
 </footer>
+@endif
 
 @include('partials.modal')
