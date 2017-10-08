@@ -12,7 +12,10 @@
   outline: 0;
 
   &__wrap {
-    @include modal;
+    @include media-bp(desktop) {
+      width: calc(100% - #{$grid-gutter-size*4});
+      margin-left: $grid-gutter-size*4;
+    }
   }
 
   &.is-open {

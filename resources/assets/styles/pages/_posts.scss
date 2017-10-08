@@ -5,10 +5,20 @@ article {
     height: auto;
   }
 
-  section,
-  footer {
+  section {
     a {
-      @include link_style;
+      background-color: $bg-link-hover;
+      margin: -0.1em;
+      padding: 0.1em;
+      border: 0.1em solid transparent;
+      background-clip: padding-box;
+      transition: background-color 0.2s;
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        background-color: $bg-link;
+      }
     }
   }
 }
