@@ -1,4 +1,7 @@
-<time datetime="{{ get_post_time('c', true) }}">{{ get_the_date() }}</time>
+<time datetime="{{ get_post_time('c', true) }}">
+  <i class="fa fa-clock-o"></i>
+  {{ get_the_date() }}
+</time>
 
 @include('partials.social')
   

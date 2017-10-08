@@ -6,6 +6,6 @@
   <div class="">{{the_excerpt()}}</div>
 
   <footer>
-    {!!get_the_tag_list('<p>Tags: ','&nbsp','</p>')!!}
+    {!!get_the_tag_list('<p><i class="fa fa-tag"></i> ','&nbsp','</p>')!!}
   </footer>
 </article>
