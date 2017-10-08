@@ -225,4 +225,40 @@
       display: block;
     }
   }
+
+  &-alt {
+    position: relative;
+    display: flex;
+    font-size: 0.8rem;
+    border: $website-border-secondary;
+    margin-bottom: $section-padding;
+    margin-top: $section-padding;
+
+    a {
+      display: block;
+      flex-grow: 1;
+      text-align: center;
+
+      @include media-bp(tablet-min) {
+        padding: $menu-padding;
+      }
+
+      @include media-bp(phone) {
+        padding: $menu-padding/2;
+      }
+
+      &:hover {
+        text-decoration: none;
+        cursor: pointer;
+
+        @include media-bp(tablet-min) {
+          background-color: $bg-link-hover;
+        }
+      }
+    }
+
+    a + a {
+      border-left: $website-border-secondary;
+    }
+  }
 }
