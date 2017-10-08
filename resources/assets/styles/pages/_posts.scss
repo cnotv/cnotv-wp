@@ -9,7 +9,8 @@ article {
   footer,
   aside {
     a {
-      padding: 0 0.1em;
+      padding: 0.1rem;
+      font-size: 0.9rem;
       text-decoration: underline dotted;
 
       &:hover,

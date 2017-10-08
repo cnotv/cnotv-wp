@@ -1,4 +1,6 @@
 .o-nav {
+
+  // horizontal navbar, e.g. for main navigations
   &-h {
     position: relative;
     display: flex;
@@ -107,8 +109,10 @@
         }
       }
 
-      @include media-bp(phone) {
-        display: none;
+      header & {
+        @include media-bp(phone) {
+          display: none;
+        }
       }
     }
 
@@ -118,15 +122,22 @@
       @include media-bp(phone) {
         border-bottom: $website-border-secondary;
       }
+
+      footer & {
+        @include media-bp(phone) {
+          display: block;
+        }
+      }
     }
 
     &__burger {
       @include media-bp(tablet-min) {
-        display: none;
+        display: none !important; // please forgive me for this...
       }
     }
   }
 
+  // vertical navbar, e.g. for side navigations
   &-v {
     padding: 0 4vw;
 
@@ -226,6 +237,7 @@
     }
   }
 
+  // secondary navbar, e.g. for sidebars
   &-alt {
     position: relative;
     display: flex;

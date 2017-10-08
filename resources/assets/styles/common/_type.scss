@@ -58,6 +58,12 @@ p {
   margin-bottom: 1rem;
 }
 
+ul {
+  @include media-bp(mobile) {
+    padding-left: 1rem;
+  }
+}
+
 li {
   list-style: square;
 }
