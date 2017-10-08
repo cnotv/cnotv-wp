@@ -58,6 +58,10 @@ p {
   margin-bottom: 1rem;
 }
 
+li {
+  list-style: square;
+}
+
 hr {
   margin-top: $grid-gutter-size;
   margin-bottom: $grid-gutter-size;

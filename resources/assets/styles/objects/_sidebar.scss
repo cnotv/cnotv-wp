@@ -1,0 +1,11 @@
+aside {
+  a {
+    padding: 0 0.1em;
+    text-decoration: underline dotted;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+  }
+}

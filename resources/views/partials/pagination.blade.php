@@ -1,4 +1,4 @@
-<nav class="">
+<nav class="o-nav-alt">
   @php($portfolio_link = esc_url(get_post_custom_values('portfolio_link')[0]))
 
   @if ($portfolio_link)

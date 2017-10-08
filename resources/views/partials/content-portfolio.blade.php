@@ -9,9 +9,6 @@
 
       <img src="{{wp_get_attachment_url( get_post_thumbnail_id() )}}" alt="{{the_title()}}">
 
-      <footer>
-        {!! portoflio_link() !!}
-      </footer>
     </a>
   </div>
 </article>

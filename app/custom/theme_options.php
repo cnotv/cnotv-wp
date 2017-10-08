@@ -115,7 +115,7 @@ function share_button(){
     'facebook'  => 'https://www.facebook.com/sharer/sharer.php?u='. $link,
     'twitter'   => 'https://twitter.com/intent/tweet?text='. $text .' - '. $cnotv_shortlink,
     'linkedin'  => 'https://www.linkedin.com/shareArticle?mini=true&url='. $link .'&title='. $title .'&summary='. $excerpt . '&source=https://firma.de',
-    'mail'      => 'mailto:?subject='. $title .'&body='. $excerpt .' - '. $link
+    'envelope'      => 'mailto:?subject='. $title .'&body='. $excerpt .' - '. $link
   ];
 
   return $social;
