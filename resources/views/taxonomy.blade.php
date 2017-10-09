@@ -2,6 +2,7 @@
 @section('content')
   <section class="c-section">
     <div class="c-container">
+      @include('partials.page-header')
       {!! taxonomy_cloud(get_queried_object()->taxonomy, 'Categories:') !!}
 
       @if (!have_posts())

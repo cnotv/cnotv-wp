@@ -1,1 +1,1 @@
-<h1 class="h3">{{the_title()}}</h1>
+<h1 class="h3">{!! App::title() !!}</h1>
