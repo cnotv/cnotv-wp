@@ -13,7 +13,7 @@
       {{ cnotv_nav_menu('primary_navigation') }}
 
       <div class="o-search__bar">
-        {!! get_search_form() !!}
+        <search></search>
       </div>
 
       <div class="o-nav-h__right">

@@ -1,4 +1,5 @@
-  <form id="contact" class="">
+<template>
+  <form class="">
     <div class="">
       <h5>Your infos:</h5>
       <p><input class="c-input__text" type="text" v-model="name" placeholder="Your name"></p>
@@ -54,5 +55,21 @@
       <a class="c-btn-cta" href=''><b>Send it</b></a>
     </div>
   </form>
+</template>
 
-
+<script>
+export default {
+  name: 'search',
+  data() {
+    return {
+      name     : '',
+      email    : '',
+      msg      : '',
+      checked  : true,
+      picked   : '',
+      role     : '',
+      looking  : '',
+    };
+  }
+}
+</script>
