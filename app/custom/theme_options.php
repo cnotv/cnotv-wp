@@ -90,9 +90,7 @@ function cnotv_shortlink( $permalink ) {
 
   return $shortlink;
 }
-
 add_shortcode( 'get_shortlink', 'cnotv_shortlink' );
-
 
 
 // Share buttons generator
@@ -120,3 +118,10 @@ function share_button(){
 
   return $social;
 }
+
+
+// add lazyload
+function lazy_load($classes) {
+  return $classes . ' islazy';
+}
+add_filter('get_image_tag_class', 'lazy_load');

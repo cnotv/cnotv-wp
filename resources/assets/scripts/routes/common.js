@@ -2,27 +2,25 @@ import Vue from 'vue'
 
 import _ from 'lodash'
 import axios from 'axios'
+import lozad from 'lozad'
+
 export default {
   init() {
     // JavaScript to be fired on all pages
-    $('.js-modal').on('click', function modalLink() {
-      // TODO search how to target main
-      const modalcontent = $(this).attr('href');
-      $('#cnotvModal .modal-content').empty().append('<div class="c-loader"></div>');
-      $('#cnotvModal .modal-content').load(modalcontent);
-      $('body').addClass('is-modal-open');
-    });
-    $('.js-search').on('click', () => {
-      $('body').toggleClass('has-search-open').removeClass('has-menu-open');
-      $('.search-field').focus().val('');
-    });
-    $('.js-burger').on('click', () => {
-      $('body').toggleClass('has-menu-open').removeClass('has-search-open');
-    });
-    $('.o-nav a').on('click', () => {
-      $('.js-burger').toggleClass('is-loading');
-    });
 
+    // navbar elements
+    $('.js-search').on('click', () => {
+      $('body').toggleClass('has-search-open').removeClass('has-menu-open')
+      $('.search-field').focus().val('')
+    })
+    $('.js-burger').on('click', () => {
+      $('body').toggleClass('has-menu-open').removeClass('has-search-open')
+    })
+    $('.o-nav a').on('click', () => {
+      $('.js-burger').toggleClass('is-loading')
+    })
+
+    // navbar search
     new Vue({
       el: 'search',
       data: {
@@ -74,6 +72,7 @@ export default {
       },
     })
 
+    // Contact form
     new Vue({
     el: '#contact',
     data: {
@@ -90,5 +89,14 @@ export default {
   },
   finalize() {
     // JavaScript to be fired on all pages, after page specific JS is fired
+    // lazy loads script
+    const observer = lozad('.islazy', {
+        load: function(el) {
+            el.parentNode.parentNode.parentNode.classList.add('fadeIn')
+            el.nextSibling.remove()
+            el.src = el.dataset.src
+        },
+    })
+    observer.observe()
   },
-};
+}

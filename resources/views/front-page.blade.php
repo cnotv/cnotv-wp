@@ -39,10 +39,10 @@
             @include('partials.content-portfolio')
           @endwhile
 
-          <article class="c-col-1-4 o-card fadeInUp">
+          <article class="c-col-1-4 o-card">
             <a href="{{esc_url( get_category_link( $category->term_id ))}}">
               <div class="o-card__wrap">
-                <section class="o-card--center">
+                <section class="o-card--center islazy">
                   <p>Latest {{$category->name}}</p>
                   <i class="fa fa-plus"></i>
                 </section>
@@ -64,8 +64,6 @@
       $query = new WP_Query( $args ); ?>
       @while ($query->have_posts()) @php($query->the_post())
         @include('partials.content')
-        <br>
-        <br>
       @endwhile
 
       <div class="c-row c-row--padding-2 c-row--center">
