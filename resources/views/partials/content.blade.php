@@ -1,4 +1,4 @@
-<article @php(post_class('c-col isLoading'))>
+<article @php(post_class('c-col'))>
   <header>
     <h2 class="h4"><a href="{{the_permalink()}}">{{the_title()}}</a></h2>
   </header>

@@ -10,7 +10,6 @@
             @include('partials/content-single-'.get_post_type())
           </section>
           <aside class="c-col-1-4">
-            @include('partials/pagination')
             @include('partials/entry-meta')
             @php(dynamic_sidebar('sidebar-primary'))
           </aside>

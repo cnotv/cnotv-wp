@@ -1,19 +1,22 @@
-<time datetime="{{ get_post_time('c', true) }}">
-  <i class="fa fa-clock-o"></i>
-  {{ get_the_date() }}
-</time>
+@if(!is_home())
+  @include('partials/pagination')
 
-@include('partials.social')
+  <time datetime="{{ get_post_time('c', true) }}">
+    <i class="fa fa-clock-o"></i>
+    {{ get_the_date() }}
+  </time>
+
+  @include('partials.social')
+@endif
   
-<div class="">
-  @if(is_singular( 'post' ))
-    {!! taxonomy_cloud('post_tag','Tags:') !!}
-  @endif
-  @if(is_singular( 'portfolio_category' ))
-    {!! taxonomy_cloud('portfolio_category', 'Categories:') !!}
-  @endif
-  @if(!is_singular( 'post' ))
-    {!! taxonomy_cloud('subfields', 'Projects type') !!}
-    {!! taxonomy_cloud('tools', 'Stack:') !!}
-  @endif
-</div>
+@if(is_singular( 'post' ) || is_home())
+  {!! taxonomy_cloud('post_tag','Tags:') !!}
+@endif
+@if(is_singular( 'portfolio_category' ) && !is_home())
+  {!! taxonomy_cloud('portfolio_category', 'Categories:') !!}
+@endif
+
+@if(!is_singular( 'post' ) && !is_home())
+  {!! taxonomy_cloud('subfields', 'Projects type') !!}
+  {!! taxonomy_cloud('tools', 'Stack:') !!}
+@endif
