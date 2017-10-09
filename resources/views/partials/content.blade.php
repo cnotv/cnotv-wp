@@ -1,6 +1,6 @@
-<article @php(post_class('c-col'))>
+<article @php(post_class('c-col isLoading'))>
   <header>
-    <h2 class="h4"><a href="{{the_permalink()}}" class="islazy"">{{the_title()}}</a></h2>
+    <h2 class="h4"><a href="{{the_permalink()}}">{{the_title()}}</a></h2>
   </header>
   
   <div class="">{{the_excerpt()}}</div>

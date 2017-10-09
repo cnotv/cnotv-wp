@@ -5,7 +5,7 @@
       {!! get_custom_logo() !!}
     @else
       <a href="{{ home_url() }}" rel="home" itemprop="url">
-        <h1 class="c-logo">{{ bloginfo( 'name' ) }}</h1>
+        <div class="c-logo h1">{{ bloginfo( 'name' ) }}</div>
       </a>
     @endif
 

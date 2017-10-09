@@ -39,10 +39,10 @@
             @include('partials.content-portfolio')
           @endwhile
 
-          <article class="c-col-1-4 o-card">
+          <article class="c-col-1-4 o-card isLoading">
             <a href="{{esc_url( get_category_link( $category->term_id ))}}">
               <div class="o-card__wrap">
-                <section class="o-card--center islazy">
+                <section class="o-card--center">
                   <p>Latest {{$category->name}}</p>
                   <i class="fa fa-plus"></i>
                 </section>

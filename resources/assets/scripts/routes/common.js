@@ -16,8 +16,8 @@ export default {
     $('.js-burger').on('click', () => {
       $('body').toggleClass('has-menu-open').removeClass('has-search-open')
     })
-    $('.o-nav a').on('click', () => {
-      $('.js-burger').toggleClass('is-loading')
+    $('.o-nav-h ul a').on('click', () => {
+      $('.js-burger').toggleClass('isLoading')
     })
 
     // navbar search
@@ -62,7 +62,7 @@ export default {
             }
           },
           // This is the number of milliseconds we wait for the user to stop typing.
-          0
+          250
         ),
 
         // Reset input field
@@ -90,11 +90,12 @@ export default {
   finalize() {
     // JavaScript to be fired on all pages, after page specific JS is fired
     // lazy loads script
-    const observer = lozad('.islazy', {
+    const observer = lozad('.isLoading', {
         load: function(el) {
-            el.parentNode.parentNode.parentNode.classList.add('fadeIn')
-            el.nextSibling.remove()
-            el.src = el.dataset.src
+            let image = el.getElementsByTagName('img')[0]
+            el.classList.add('fadeIn')
+            el.classList.remove('isLoading')
+            image.src = image.dataset.src
         },
     })
     observer.observe()

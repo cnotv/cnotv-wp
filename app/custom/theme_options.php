@@ -122,6 +122,6 @@ function share_button(){
 
 // add lazyload
 function lazy_load($classes) {
-  return $classes . ' islazy';
+  return $classes . ' isLoading';
 }
 add_filter('get_image_tag_class', 'lazy_load');

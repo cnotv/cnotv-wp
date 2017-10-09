@@ -51,13 +51,8 @@
 }
 
 @keyframes slideInRight {
-  from {
-    transform: translate3d(50%, 0, 0);
-  }
-
-  to {
-    transform: none;
-  }
+  from { transform: translate3d(50%, 0, 0); }
+  to { transform: none; }
 }
 
 .slideInLeft {
@@ -67,24 +62,20 @@
 }
 
 @keyframes slideInLeft {
-  from {
-    transform: translate3d(-50%, 0, 0);
-  }
-
-  to {
-    transform: none;
-  }
+  from { transform: translate3d(-50%, 0, 0); }
+  to { transform: none; }
 }
 
 .animation-delay { animation-delay: 0.2s; }
 
 @keyframes rotate360 {
-  from {
-    transform: rotate(0deg);
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 
-  to {
-    transform: rotate(360deg);
-  }
+@keyframes pulse {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
 }
 

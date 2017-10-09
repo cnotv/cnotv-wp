@@ -1,16 +1,46 @@
 .c-loader {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  font-size: 3rem;
-  width: 0.85em;
-  height: 0.85em;
-  border-radius: 50%;
-  border: 0.2em solid $brand-primary;
-  border-bottom-color: transparent;
-  animation: rotate360 1s linear infinite;
+  position: relative;
 
   &::before {
     content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 3rem;
+    width: 0.85em;
+    height: 0.85em;
+    border-radius: 50%;
+    border: 0.2em solid $brand-primary;
+    border-bottom-color: transparent;
+    animation: rotate360 1s linear infinite;
+  }
+}
+
+.isLoading {
+  position: relative;
+  // animation: pulse 1s linear infinite;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 3rem;
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 50%;
+    border: 2px dotted $brand-primary;
+    border-bottom-color: transparent;
+    animation: rotate360 1s linear infinite;
+  }
+
+  & * {
+    opacity: 0;
   }
 }

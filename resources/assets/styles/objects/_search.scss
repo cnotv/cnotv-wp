@@ -12,6 +12,7 @@
       border: none;
       width: 100%;
       text-transform: uppercase;
+      outline: none;
 
       @include media-bp(tablet-min) {
         padding: $menu-padding;
@@ -26,15 +27,24 @@
   &__status,
   &__reset {
     position: absolute;
-    top: 0;
 
     @include media-bp(tablet-min) {
-      padding: $menu-padding;
-      left: -1em;
+      display: flex;
+      top: -$menu-padding;
+      left: -$menu-padding;
+      height: $menu-padding*2;
+      width: $menu-padding*2;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: $bg-nav;
+      border: $website-border-secondary;
+      border-radius: 50%;
     }
 
     @include media-bp(phone) {
       padding: $menu-padding/2;
+      top: 0;
       right: 0;
     }
   }
@@ -50,6 +60,8 @@
   &__status {
     i {
       @include fa-icon;
+
+      animation: pulse 1s linear infinite;
     }
 
     &__search {
