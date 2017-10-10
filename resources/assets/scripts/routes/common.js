@@ -10,7 +10,8 @@ export default {
     // navbar elements
     $('.js-search').on('click', () => {
       $('body').toggleClass('has-search-open').removeClass('has-menu-open')
-      $('.search-field').focus().val('')
+      $('.js-search-field').focus()
+      $('.js-search-field').focus()
     })
     $('.js-burger').on('click', () => {
       $('body').toggleClass('has-menu-open').removeClass('has-search-open')
@@ -32,14 +33,14 @@ export default {
 
     // lazy loads script
     const observer = lozad('.isLoading', {
-        rootMargin: '10px 0px', // syntax similar to that of CSS Margin
-        threshold: 0.1,
-        load: function(el) {
-            let image = el.getElementsByTagName('img')[0]
-            el.classList.add('fadeIn')
-            el.classList.remove('isLoading')
-            image.src = image.dataset.src
-        },
+      rootMargin: '10px 0px', // syntax similar to that of CSS Margin
+      threshold: 0.1,
+      load: function(el) {
+        let image = el.getElementsByTagName('img')[0]
+        el.classList.add('fadeIn')
+        el.classList.remove('isLoading')
+        image.src = image.dataset.src
+      },
     })
     observer.observe()
   },

@@ -24,8 +24,7 @@
     }
   }
 
-  &__status,
-  &__reset {
+  &__status {
     position: absolute;
 
     @include media-bp(tablet-min) {
@@ -50,15 +49,15 @@
   }
 
   &__reset {
-    @include fa-icon;
+    cursor: pointer;
 
     &::before {
-      content: $fa-var-times;
+      content: "- ";
     }
   }
 
   &__status {
-    i {
+    i::before {
       @include fa-icon;
 
       animation: pulse 1s linear infinite;
@@ -90,7 +89,7 @@
   &__results {
     position: absolute;
     flex-direction: column;
-    margin: $menu-padding/2;
+    margin: -$menu-padding/6 $menu-padding/2;
     width: calc(100% - #{$menu-padding});
     z-index: zindex(dropdown);
     border: $website-border-secondary;
@@ -105,13 +104,24 @@
       top: 100%;
     }
 
-    a,
     &__answer {
       padding: $menu-padding/2;
     }
 
-    a + a {
+    a {
+      padding: $menu-padding/2;
       border-top: $website-border-secondary;
     }
+  }
+}
+
+.has-search-open {
+  overflow: hidden;
+
+  .c-logo,
+  main {
+    transition: filter 0.1s, opacity 0.1s;
+    opacity: 0.2;
+    filter: blur(2px);
   }
 }
