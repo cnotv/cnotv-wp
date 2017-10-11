@@ -2,9 +2,14 @@
   @include('partials/pagination')
 
   <time datetime="{{ get_post_time('c', true) }}">
-    <i class="fa fa-clock-o"></i>
+    <i class="fa fa-calendar"></i>
     {{ get_the_date() }}
   </time>
+
+  <div>
+    <i class="fa fa-clock-o"></i>
+    Reading time: <b>{!! estimated_reading_time() !!} mins</b>
+  </div>
 
   @include('partials.social')
 @endif

@@ -6,6 +6,10 @@
   <div class="">{{the_excerpt()}}</div>
 
   <footer>
-    {!!get_the_tag_list('<p><i class="fa fa-tag"></i> ','&nbsp','</p>')!!}
+    <div>{!! get_the_tag_list('<i class="fa fa-tag"></i> ','&nbsp','') !!}</div>
+    <div>
+      <i class="fa fa-clock-o"></i>
+      Reading time: <b>{!! estimated_reading_time() !!} mins</b>
+    </div>
   </footer>
 </article>

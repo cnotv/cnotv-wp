@@ -125,3 +125,15 @@ function lazy_load($classes) {
   return $classes . ' isLoading';
 }
 add_filter('get_image_tag_class', 'lazy_load');
+
+
+// Estimate time required to read the article
+function estimated_reading_time() {
+  $post = get_post();
+  $words = str_word_count( strip_tags( $post->post_content ) );
+  $minutes = floor( $words / 120 );
+  $seconds = floor( $words % 120 / ( 120 / 60 ) );
+  // $estimated_time = $minutes . ' min' . ($minutes == 1 ? '' : 's');
+  $estimated_time = $minutes;
+  return $estimated_time;
+}
