@@ -3,22 +3,35 @@
 @section('content')
   <section class="c-section">
     <div class="c-container">
-      @include('partials.page-header')
-
-      @if (!have_posts())
-        <div class="alert alert-warning">
-          {{ __('Sorry, no results were found.', 'sage') }}
-        </div>
-        {!! get_search_form(false) !!}
-      @endif
 
       <div class="c-row">
-        @while (have_posts()) @php(the_post())
-          @include ('partials.content-'.(get_post_type() !== 'post' ? get_post_type() : get_post_format()))
-        @endwhile
-      </div>
+        
+        <section class="c-col-3-4">
+          @include('partials.page-header')
 
-      {!! get_the_posts_navigation() !!}
+          <div class="c-row">
+            @if (!have_posts())
+              <div class="alert alert-warning">
+                {{ __('Sorry, no results were found.', 'sage') }}
+              </div>
+              {!! get_search_form(false) !!}
+            @endif
+          
+            @while (have_posts()) @php(the_post())
+              @include ('partials.content-'.(get_post_type() !== 'post' ? get_post_type() : get_post_format()))
+            @endwhile
+          </div>
+        </section>
+
+        <aside class="c-col-1-4">
+
+          {{-- {!! get_queried_object()->taxonomy !!} --}}
+          {!! taxonomy_cloud('subfields', 'Projects type') !!}
+          {!! taxonomy_cloud('tools', 'Stack:') !!}
+  
+          @php(dynamic_sidebar('sidebar-primary'))
+        </aside>
+      </div>
     </div>
   </section>
 @endsection

@@ -1,5 +1,5 @@
 @php($columns = 'c-col-1-4 o-card isLoading')
-@if (is_tax( ['tools','subfields'] ))
+@if (!is_front_page() && !is_singular())
   @php($columns = 'c-col-1-3 o-card isLoading')
 @endif
 

@@ -68,9 +68,11 @@ function taxonomy_cloud($taxonomy, $heading = null) {
 
       $template .= '</section>';
     endif;
-  } else {
-    echo 'no cloud';
   }
+
+  // else {
+  //   echo 'no cloud';
+  // }
 
   return $template;
 }

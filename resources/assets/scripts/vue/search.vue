@@ -45,7 +45,6 @@ export default {
         if (this.question) {
           this.status = '<i class="o-search__status__search"></i>'
           var vm = this
-          // var searchUrl = vm.generateUrl()
           var searchUrl = this.url + '?per_page=10&search=' + this.question
           axios.get(searchUrl)
             .then(function (response) {

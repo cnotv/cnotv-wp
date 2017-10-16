@@ -6,10 +6,12 @@
     {{ get_the_date() }}
   </time>
 
-  <div>
-    <i class="fa fa-clock-o"></i>
-    Reading time: <b>{!! estimated_reading_time() !!} mins</b>
-  </div>
+  @if(is_singular( 'post' ))
+    <div>
+      <i class="fa fa-clock-o"></i>
+      Reading time: <b>{!! estimated_reading_time() !!} mins</b>
+    </div>
+  @endif
 
   @include('partials.social')
 @endif
@@ -17,6 +19,7 @@
 @if(is_singular( 'post' ) || is_home())
   {!! taxonomy_cloud('post_tag','Tags:') !!}
 @endif
+
 @if(is_singular( 'portfolio_category' ) && !is_home())
   {!! taxonomy_cloud('portfolio_category', 'Categories:') !!}
 @endif
