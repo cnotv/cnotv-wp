@@ -15,5 +15,5 @@
     <a class="" href="{{get_permalink( $next_post->ID )}}"><i class="fa fa-arrow-right"></i></a>
   @endif
 
-  <a class="" href="{{get_home_url()}}" data-dismiss="modal"><i class="fa fa-times"></i></a>
+  <a class="" href="{{get_home_url()}}" ><i class="fa fa-times"></i></a>
 </nav>
