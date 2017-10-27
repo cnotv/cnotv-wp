@@ -78,27 +78,10 @@ function taxonomy_cloud($taxonomy, $heading = null) {
 }
 
 
-
-function cnotv_shortlink( $permalink ) {
-  $shortlink = $permalink;
-  // $url = 'https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyD_0jRX9K0uRByIfzarC2rXCZ_j6gtIGA8';
-
-  // // TOFIX - slower page loading
-  // $http = new WP_Http();
-  // $headers = array('Content-Type' => 'application/json');
-  // $result = $http->request($url, array( 'method' => 'POST', 'body' => '{"longUrl": "' . $permalink . '"}', 'headers' => $headers));
-  // $result = json_decode($result['body']);
-  // $shortlink = $result->id;
-
-  return $shortlink;
-}
-add_shortcode( 'get_shortlink', 'cnotv_shortlink' );
-
-
 // Share buttons generator
 function share_button(){
-  $link = get_the_permalink();
-  $cnotv_shortlink = cnotv_shortlink($link);
+  // $link = get_the_permalink();
+  $link = home_url().'?p='.get_the_ID();
   $title = get_the_title();
 
   if(has_excerpt()) 
@@ -113,7 +96,7 @@ function share_button(){
 
   $social = [
     'facebook'  => 'https://www.facebook.com/sharer/sharer.php?u='. $link,
-    'twitter'   => 'https://twitter.com/intent/tweet?text='. $text .' - '. $cnotv_shortlink,
+    'twitter'   => 'https://twitter.com/intent/tweet?text='. $text .' - '. $link,
     'linkedin'  => 'https://www.linkedin.com/shareArticle?mini=true&url='. $link .'&title='. $title .'&summary='. $excerpt . '&source=https://firma.de',
     'envelope'      => 'mailto:?subject='. $title .'&body='. $excerpt .' - '. $link
   ];

@@ -13,7 +13,11 @@
     </div>
   @endif
 
-  @include('partials.social')
+  <social
+    :socials="{{ json_encode(share_button()) }}"
+    :type="{{ json_encode($type="-o") }}"
+  ></social>
+
 @endif
   
 @if(is_singular( 'post' ) || is_home())

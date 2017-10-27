@@ -1,7 +1,7 @@
 import lozad from 'lozad'
 
 import Vue from 'vue'
-import Search from '../vue/search.vue'
+import Search from '../vue/Search.vue'
 
 export default {
   init() {

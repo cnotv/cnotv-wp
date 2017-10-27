@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Contact from '../vue/Contact.vue'
+import Social from '../vue/Social.vue'
 
 export default {
   init() {
@@ -8,9 +8,9 @@ export default {
   finalize() {
     // JavaScript to be fired on all pages, after page specific JS is fired
     new Vue({
-      el: 'contact',
+      el: 'social',
       components: {
-        Contact,
+        Social,
       },
     })
   },

@@ -25,7 +25,7 @@
 
         <aside class="c-col-1-4">
 
-          {{-- {!! get_queried_object()->taxonomy !!} --}}
+          {!! taxonomy_cloud('post_tag', 'Tags') !!}
           {!! taxonomy_cloud('subfields', 'Projects type') !!}
           {!! taxonomy_cloud('tools', 'Stack:') !!}
   
