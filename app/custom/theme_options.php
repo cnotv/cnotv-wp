@@ -1,6 +1,7 @@
 <?php 
-// ================================================================================================
-// Theme basic functionalities setup
+/**
+ *  Theme basic functionalities setup
+ */
 if ( ! function_exists( 'cnotv_setup' ) ) :
 function cnotv_setup() {
   add_theme_support( 'automatic-feed-links' );
@@ -13,6 +14,9 @@ function cnotv_setup() {
 endif;
 add_action( 'after_setup_theme', 'cnotv_setup' );
 
+/**
+ *  Added custom classes
+ */
 add_filter( 'get_custom_logo', 'change_logo_class' );
 function change_logo_class( $html ) {
   $html = str_replace( 'custom-logo', 'c-logo', $html );
@@ -20,19 +24,22 @@ function change_logo_class( $html ) {
 }
 
 
-
-// Add SVG support
+/**
+ *  Add SVG support
+ */
 function cc_mime_types( $mimes ){
    $mimes['svg'] = 'image/svg+xml';
    return $mimes;
 }
 add_filter( 'upload_mimes', 'cc_mime_types' );
 
-// after Wordpress 4.7.1
+/**
+ *  Add SVG support after Wordpress 4.7.1
+ */
 function ignore_upload_ext($checked, $file, $filename, $mimes){
 
   //we only need to worry if WP failed the first pass
-  if(!$checked['type']){
+  if (!$checked['type']){
     //rebuild the type info
     $wp_filetype = wp_check_filetype( $filename, $mimes );
     $ext = $wp_filetype['ext'];
@@ -52,10 +59,12 @@ function ignore_upload_ext($checked, $file, $filename, $mimes){
 }
 add_filter('wp_check_filetype_and_ext', 'ignore_upload_ext', 10, 4);
 
-
-
+/**
+ *  Taxonomy cloud generator
+ *  Define displayed text as second argument (optional)
+ */
 function taxonomy_cloud($taxonomy, $heading = null) {
-  if($taxonomy) {
+  if ($taxonomy) {
     $terms = get_terms( $taxonomy );
 
     if (!empty( $terms ) && !is_wp_error( $terms )):
@@ -70,21 +79,18 @@ function taxonomy_cloud($taxonomy, $heading = null) {
     endif;
   }
 
-  // else {
-  //   echo 'no cloud';
-  // }
-
   return $template;
 }
 
-
-// Share buttons generator
+/**
+ *  Share buttons cloud generator
+ */
 function share_button(){
   // $link = get_the_permalink();
   $link = home_url().'?p='.get_the_ID();
   $title = get_the_title();
 
-  if(has_excerpt()) 
+  if (has_excerpt()) 
     $excerpt = get_the_excerpt(); 
   else 
     $excerpt = $title;
@@ -104,8 +110,9 @@ function share_button(){
   return $social;
 }
 
-
-// add lazyload
+/**
+ *  Adding lazyloading for all the classes defined below
+ */
 function lazy_load($classes) {
   return $classes . ' isLoading';
 }
@@ -122,3 +129,14 @@ function estimated_reading_time() {
   $estimated_time = $minutes;
   return $estimated_time;
 }
+
+/**
+ *  Removing jQuery if not logged in
+ */
+// function wpdocs_dequeue_script($scripts) {
+//   if ( !is_admin() && !empty( $scripts->registered['jquery'] && !is_user_logged_in() ) ) {
+//     $jquery_dependencies = $scripts->registered['jquery']->deps;
+//     $scripts->registered['jquery']->deps = array_diff( $jquery_dependencies, array( 'jquery-migrate' ) );
+//   }
+// } 
+// add_action( 'wp_print_scripts', 'wpdocs_dequeue_script', 100 );
