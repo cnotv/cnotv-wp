@@ -13,10 +13,7 @@
     </div>
   @endif
 
-  <social
-    :socials="{{ json_encode(share_button()) }}"
-    :type="{{ json_encode($type="-o") }}"
-  ></social>
+  <social :socials="{{ json_encode(share_button()) }}"></social>
 
 @endif
   
