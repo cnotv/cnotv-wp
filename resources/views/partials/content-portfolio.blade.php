@@ -7,7 +7,11 @@
   <div class="o-card__wrap">
     <a href="{{the_permalink()}}">
 
-      <img data-src="{{ wp_get_attachment_url( get_post_thumbnail_id() )}}" alt="{{ the_title() }}">
+      <img 
+        data-src="{{ wp_get_attachment_url( get_post_thumbnail_id() )}}"
+        src="{{ wp_get_attachment_image_src( get_post_thumbnail_id(), 'thumbnail')[0] }}"
+        alt="{{ the_title() }}"
+      >
 
     </a>
   </div>
