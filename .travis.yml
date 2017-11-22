@@ -58,3 +58,9 @@ after_success:
       mirror -eRv -P 10 -x ^\. -x vendor/ -x node_modules/ -x resources/assets/ $FTP_DIR .;
       quit;"
   - codecov
+  - chmod +x discord.sh
+  - ./discord.sh success
+
+after_failure:
+  - chmod +x discord.sh
+  - ./discord.sh failure
