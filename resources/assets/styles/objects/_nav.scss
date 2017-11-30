@@ -32,7 +32,7 @@
       }
 
       @include media-bp(phone) {
-        padding: $menu-padding/2;
+        padding: $menu-padding/2 $menu-padding;
       }
 
       &:hover {
