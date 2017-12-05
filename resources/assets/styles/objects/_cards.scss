@@ -8,6 +8,8 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    max-width: $card-max-width;
+    margin: auto;
     transition: box-shadow 0.2s;
     box-shadow: $website-shadow;
     background-color: $bg-card;
