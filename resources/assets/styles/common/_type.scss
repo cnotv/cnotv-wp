@@ -113,6 +113,12 @@ pre {
   }
 }
 
+code {
+  color: color(lightgrey);
+  background: color(black);
+  padding: 0.1em 0.4em;
+}
+
 table {
   border-collapse: collapse;
   margin: $grid-gutter-size*2 0;
