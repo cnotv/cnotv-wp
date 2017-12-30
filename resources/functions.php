@@ -69,7 +69,7 @@ array_map(function ($file) use ($sage_error) {
     'custom/taxonomy-subfields',
     'custom/taxonomy-tools',
     'custom/metabox-link',
-    'custom/disable_comment',
+    // 'custom/disable_comment',
     'custom/navwalker'
 ]);
 

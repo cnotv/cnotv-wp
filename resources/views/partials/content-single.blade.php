@@ -9,4 +9,5 @@
   
   <footer>
   </footer>
+  @php(comments_template('/partials/comments.blade.php'))
 </article>
