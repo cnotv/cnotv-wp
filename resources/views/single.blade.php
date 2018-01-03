@@ -24,5 +24,12 @@
       @include('partials/related-post')
     </div>
   </section>
+  
+  
+  <section class="c-section">
+    <div class="c-container">
+      @php(comments_template('/partials/comments.blade.php'))
+    </div>
+  </section>
 @endsection
 
