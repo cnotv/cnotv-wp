@@ -1,4 +1,5 @@
-@extends('layouts.base')
+@php(wp_redirect( home_url(), 302 ))
+{{-- @extends('layouts.base')
 @include('partials.page-header')
 
 @section('content')
@@ -8,3 +9,4 @@
 
   {{ get_search_form() }}
 @endsection
+ --}}
